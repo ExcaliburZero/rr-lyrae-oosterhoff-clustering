@@ -18,7 +18,7 @@ def main():
         data = pd.read_csv(data_f)
 
         plot = ggplot(data, aes("period", "I_amplitude")) +\
-            stat_bin_2d(bins=150) +\
+            geom_point(alpha=0.06) +\
             xlab("Period (days)") +\
             ylab("I-band Amplitude (mag)") +\
             ggtitle("OGLE IV {} RRab Period vs I-band Amplitude".format(title)) +\
