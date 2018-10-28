@@ -38,7 +38,10 @@ def main():
                 xlab("Time (MJD)") +\
                 ylab("Magnitude (mag)") +\
                 ggtitle("Light Curve - {} - {} band".format(data_id, band.upper())) +\
-                theme(figure_size=(9, 9))
+                theme(
+                    figure_size=(9, 9),
+                    text=element_text(size=16)
+                )
 
         plot_filename = "light_curve_raw_{}.png".format(band)
         plot_file = os.path.join(output_dir, plot_filename)
@@ -54,7 +57,10 @@ def main():
                 xlab("Phase") +\
                 ylab("Magnitude (mag)") +\
                 ggtitle("Folded Light Curve - {} - {} band".format(data_id, band.upper())) +\
-                theme(figure_size=(9, 9))
+                theme(
+                    figure_size=(9, 9),
+                    text=element_text(size=16)
+                )
 
         plot_folded_filename = "light_curve_folded_{}.png".format(band)
         plot_folded_file = os.path.join(output_dir, plot_folded_filename)
