@@ -104,7 +104,7 @@ data/raw/smc/phot/: data/raw/smc/phot.tar.gz
 	tar -zxvf data/raw/smc/phot.tar.gz -C data/raw/smc
 	touch data/raw/smc/phot/
 
-data/interim/smc/RRab.csv data/interim/smc/RRc.csv data/interim/smc/RRd.csv data/interim/smc/aRRd.csv data/interim/smc/all.csv: data/raw/smc/RRab.dat data/raw/smc/RRc.dat data/raw/smc/RRd.dat data/raw/smc/aRRd.dat src/data/lmc/process_dat_files.py
+data/interim/smc/RRab.csv data/interim/smc/RRc.csv data/interim/smc/RRd.csv data/interim/smc/aRRd.csv data/interim/smc/all.csv: data/raw/smc/RRab.dat data/raw/smc/RRc.dat data/raw/smc/RRd.dat data/raw/smc/aRRd.dat src/data/smc/process_dat_files.py
 	mkdir data/interim/smc
 	python src/data/lmc/process_dat_files.py data/raw/smc data/interim/smc
 	touch data/interim/smc
