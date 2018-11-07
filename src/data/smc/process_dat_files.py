@@ -1,7 +1,13 @@
-import pandas as pd
+import os.path
 import subprocess
+import sys
+
+import pandas as pd
 
 def main():
+    input_dir = sys.argv[1]
+    output_dir = sys.argv[2]
+
     dat_files = ["RRab", "RRc", "RRd", "aRRd"]
 
     rrab_rrc_cols = ["id", "mean_I_magnitude", "mean_V_magnitude", "period"
@@ -20,21 +26,24 @@ def main():
         , rrd_arrd_cols
         , rrd_arrd_cols
     ]
-    [dat_to_csv(dat, columns) for (dat, columns) in zip(dat_files, column_sets)]
+    [dat_to_csv(input_dir, output_dir, dat, columns) for (dat, columns) in zip(dat_files, column_sets)]
 
-    combine_dat_files("RRab", "RRc", "RRd", "aRRd")
+    combine_dat_files(output_dir, "RRab", "RRc", "RRd", "aRRd")
 
 def dat_to_csv(dat, columns):
-    data = pd.read_fwf(dat + ".dat", header=None)
+    data_file = os.path.join(input_dir, dat + ".dat")
+    output_file = os.path.join(output_dir, dat + ".csv")
+
+    data = pd.read_fwf(data_file, header=None)
 
     if columns is not None:
         data.columns = columns
-        
-        data.to_csv(dat + ".csv", index=False)
-    else:
-        data.to_csv(dat + ".csv", index=False, header=False)
 
-    remove_empty_cells(dat)
+        data.to_csv(output_file, index=False)
+    else:
+        data.to_csv(output_file, index=False, header=False)
+
+    remove_empty_cells(os.path.join(output_dir, dat))
 
 def remove_empty_cells(dat):
     """
@@ -44,14 +53,13 @@ def remove_empty_cells(dat):
     f = dat
     command = "cat '%s.csv' | sed 's/,-/,/g' > '%s_2.csv' && cat %s_2.csv > %s.csv && rm %s_2.csv" % (f, f, f, f, f)
 
-    print(command)
     subprocess.call(command, shell=True)
 
 def combine_dat_files(rrab, rrc, rrd, arrd):
-    rrab_dat = pd.read_csv(rrab + ".csv")
-    rrc_dat = pd.read_csv(rrc + ".csv")
-    rrd_dat = pd.read_csv(rrd + ".csv")
-    arrd_dat = pd.read_csv(arrd + ".csv")
+    rrab_dat = pd.read_csv(os.path.join(directory, rrab + ".csv"))
+    rrc_dat = pd.read_csv(os.path.join(directory, rrc + ".csv"))
+    rrd_dat = pd.read_csv(os.path.join(directory, rrd + ".csv"))
+    arrd_dat = pd.read_csv(os.path.join(directory, arrd + ".csv"))
 
     rrab_dat = rrab_dat[["id", "period"]]
     rrab_dat["category"] = "RRab"
@@ -68,7 +76,7 @@ def combine_dat_files(rrab, rrc, rrd, arrd):
     arrd_dat["category"] = "aRRd"
 
     all_dat = pd.concat([rrab_dat, rrc_dat, rrd_dat, arrd_dat])
-    all_dat.to_csv("all.csv", index=False)
+    all_dat.to_csv(os.path.join(directory, "all.csv"), index=False)
 
 if __name__ == "__main__":
     main()

@@ -1,15 +1,28 @@
 import os
 import subprocess
+import sys
 
 def main():
-    curve_directories = ["curves/I/", "curves/V/"]
+    input_dir = sys.argv[1]
+    output_dir = sys.argv[2]
 
-    [process_dir(d) for d in curve_directories]
+    os.makedirs(output_dir, exist_ok=True)
+    os.utime(output_dir)
 
-def process_dir(directory):
-    [process_file(directory, f) for f in sorted(os.listdir(directory))]
+    curve_directories = ["I/", "V/"]
 
-def process_file(directory, f):
+    [process_dir(input_dir, output_dir, d) for d in curve_directories]
+
+def process_dir(input_dir, output_dir, directory):
+    in_dir = os.path.join(input_dir, directory)
+    out_dir = os.path.join(output_dir, directory)
+
+    os.makedirs(out_dir, exist_ok=True)
+    os.utime(out_dir)
+
+    [process_file(input_dir, output_dir, directory, f) for f in sorted(os.listdir(in_dir))]
+
+def process_file(input_dir, output_dir, directory, f):
     """
     1) Add the header
     2) Remove excess spacing
@@ -18,11 +31,12 @@ def process_file(directory, f):
     5) Remove any commas at beginning of lines
     """
     f = f[:-4]
-    f = os.path.join(directory, f)
+    in_file = os.path.join(input_dir, directory, f)
+    out_file = os.path.join(output_dir, directory, f)
 
     print(f)
 
-    command = "echo 'time,mag,magerror' > '%s.csv' && cat '%s.dat' | tr -s ' ' | sed 's/ /,/g' | sed 's/,$$//g' | sed 's/^,//g' >> '%s.csv'" % (f, f, f)
+    command = "echo 'time,mag,magerror' > '%s.csv' && cat '%s.dat' | tr -s ' ' | sed 's/ /,/g' | sed 's/,$$//g' | sed 's/^,//g' >> '%s.csv'" % (out_file, in_file, out_file)
 
     subprocess.call(command, shell=True)
 
