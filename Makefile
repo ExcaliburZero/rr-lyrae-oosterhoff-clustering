@@ -34,9 +34,14 @@ SMC_INTERIM_FILES = \
 	data/interim/smc/all.csv \
 	data/interim/smc/curves/
 
+ANALYSIS = \
+	reports/RRab_OGLE_IV_Clustering.tex \
+	reports/RRab_OGLE_IV_Clustering_files/
+
 .PHONY: all
 
-all: $(LMC_DATA_FILES) $(LMC_INTERIM_FILES) $(SMC_DATA_FILES) $(SMC_INTERIM_FILES)
+#all: $(LMC_DATA_FILES) $(LMC_INTERIM_FILES) $(SMC_DATA_FILES) $(SMC_INTERIM_FILES) $(ANALYSIS)
+all: $(ANALYSIS)
 
 ############
 # LMC Data #
@@ -111,3 +116,10 @@ data/interim/smc/RRab.csv data/interim/smc/RRc.csv data/interim/smc/RRd.csv data
 
 data/interim/smc/curves/: data/raw/smc/phot/ src/data/smc/process_light_curves.py
 	python src/data/smc/process_light_curves.py data/raw/smc/phot data/interim/smc/curves
+
+############
+# Analysis #
+############
+
+reports/RRab_OGLE_IV_Clustering.tex reports/RRab_OGLE_IV_Clustering_files/: notebooks/RRab_OGLE_IV_Clustering.ipynb data/interim/lmc/RRab.csv data/interim/smc/RRab.csv
+	jupyter nbconvert --output-dir="./reports" --execute --to latex notebooks/RRab_OGLE_IV_Clustering.ipynb
