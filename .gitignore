@@ -107,3 +107,4 @@ bin/
 # Exclude generated plots
 /reports/figures/rrab_period_Iamp/
 /reports/figures/light_curve_examples/
+/reports/figures/globular_clusters/
