@@ -108,3 +108,11 @@ bin/
 /reports/figures/rrab_period_Iamp/
 /reports/figures/light_curve_examples/
 /reports/figures/globular_clusters/
+
+# Generated files
+/notebooks/RRab_OGLE_IV_Clustering.pdf
+/notebooks/RRab_OGLE_IV_Clustering.tex
+/notebooks/RRab_OGLE_IV_Clustering_files/
+out.png
+/reports/RRab_OGLE_IV_Clustering.tex
+/reports/RRab_OGLE_IV_Clustering_files/
