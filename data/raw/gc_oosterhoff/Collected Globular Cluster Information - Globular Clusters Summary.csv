@@ -1,0 +1,54 @@
+Name,NGC,GC Location,GC Location Source,Num Oost Types,Num Oost Sources,Oost Type,Mean RRab Period,Mean RRab Period Source,Mean RRc Period,Mean RRc Period Source,Metalicity,Metalicity Source,# RRab,# RRab Source
+M3,NGC 5272,Milky Way,"Jang, 2015",1,13,I,0.564,"Braga, 2016",0.328,"Braga, 2016",-1.5,"Braga, 2016",152,"Kunder, 2013"
+M5,NGC 5904,Milky Way,"Jang, 2015",2,6,Conflicted,0.551,"Braga, 2016",0.318,"Braga, 2016",-1.29,"Braga, 2016",80,"Arellano Ferro, 2016"
+M4,NGC 6121,Milky Way,"Jang, 2015",2,3,Conflicted,0.548,"Braga, 2016",0.293,"Braga, 2016",-1.16,"Braga, 2016",15,"Kunder, 2013"
+M62,NGC 6266,Milky Way,"Jang, 2015",1,2,I,0.556,"Braga, 2016",0.296,"Braga, 2016",-1.18,"Braga, 2016",133,"Contreras, 2010"
+M53,NGC 5024,Milky Way,"Jang, 2015",1,5,II,0.661,"Braga, 2016",0.344,"Braga, 2016",-2.1,"Braga, 2016",22,"Kunder, 2013"
+M15,NGC 7078,Milky Way,"Jang, 2015",1,12,II,0.648,"Braga, 2016",0.369,"Braga, 2016",-2.37,"Braga, 2016",50,"Kunder, 2013"
+Omega Centauri,NGC 5139,Milky Way,"Jang, 2015",1,3,II,0.651,"Clement, 2001",0.359,"Braga, 2016",-1.62,"Clement, 2001",84,"Kunder, 2013"
+,NGC 1466,LMC,"Soszyński, 2016",1,2,Oo-Int,0.591,"Sollima, 2014",,,-2.17,"Sollima, 2014",,
+M72,NGC 6981,Milky Way,"Jang, 2015",1,4,I,0.568,"Braga, 2016",0.32,"Braga, 2016",-1.42,"Braga, 2016",20,"Kunder, 2013"
+M68,NGC 4590,Milky Way,"Jang, 2015",1,10,II,0.634,"Braga, 2016",0.368,"Braga, 2016",-2.23,"Braga, 2016",14,"Kains, 2015"
+,NGC 6362,Milky Way,"Jang, 2015",1,5,I,0.547,"Braga, 2016",0.294,"Braga, 2016",-0.99,"Braga, 2016",19,"Kunder, 2013"
+,NGC 2210,LMC,"Soszyński, 2016",1,1,Oo-Int,0.612,"Kuehn, 2013",,,-1.65,"Kuehn, 2013",,
+,NGC 6229,Milky Way,"Jang, 2015",1,6,I,0.552,"Braga, 2016",0.336,"Braga, 2016",-1.47,"Braga, 2016",29,"Kunder, 2013"
+,NGC 5286,Milky Way,"Jang, 2015",1,4,II,0.656,"Braga, 2016",0.333,"Braga, 2016",-1.69,"Braga, 2016",27,"Kunder, 2013"
+,IC 4499,Milky Way,"Jang, 2015",2,4,Conflicted,0.581,"Braga, 2016",0.342,"Braga, 2016",-1.53,"Braga, 2016",62,"Kunder, 2013"
+,NGC 3201,Milky Way,"Jang, 2015",2,5,Conflicted,0.555,"Braga, 2016",0.33,"Braga, 2016",-1.59,"Braga, 2016",58,"Kunder, 2013"
+,NGC 6934,Milky Way,"Jang, 2015",2,5,Conflicted,0.574,"Braga, 2016",0.308,"Braga, 2016",-1.47,"Braga, 2016",51,"Kunder, 2013"
+,NGC 7006,Milky Way,"Jang, 2015",2,2,Conflicted,0.559,"Braga, 2016",0.333,"Braga, 2016",-1.52,"Braga, 2016",43,"Kunder, 2013"
+,NGC 6388,Milky Way,"Jang, 2015",1,5,III,0.739,"Braga, 2016",0.384,"Braga, 2016",-0.55,"Braga, 2016",4,"Kunder, 2013"
+,NGC 6441,Milky Way,"Jang, 2015",1,6,III,0.755,"Braga, 2016",0.38,"Braga, 2016",-0.45,"Braga, 2016",25,"Kunder, 2013"
+,NGC 5053,Milky Way,"Jang, 2015",1,3,II,0.672,"Jang, 2015",0.354,"Jang, 2015",-2.27,"Jang, 2015",6,"Kunder, 2013"
+M54,NGC 6715,Milky Way,"Jang, 2015",2,3,Conflicted,0.592,"Braga, 2016",0.335,"Braga, 2016",-1.49,"Braga, 2016",52,"Kunder, 2013"
+M107,NGC 6171,Milky Way,"Jang, 2015",1,4,I,0.538,"Clement, 2001",0.287,"Jang, 2015",-1.04,"Clement, 2001",15,"Kunder, 2013"
+M9,NGC 6333,Milky Way,"Jang, 2015",1,4,II,0.639,"Jang, 2015",0.336,"Jang, 2015",-1.77,"Jang, 2015",9,"Arellano Ferro, 2013"
+,NGC 5986,Milky Way,"Jang, 2015",1,1,II,0.652,"Jang, 2015",0.328,"Jang, 2015",-1.59,"Jang, 2015",6,"Kunder, 2013"
+,NGC 5466,Milky Way,"Jang, 2015",1,3,II,0.646,"Clement, 2001",0.348,"Jang, 2015",-2.22,"Clement, 2001",12,"Kunder, 2013"
+,NGC 4147,Milky Way,"Jang, 2015",1,4,I,0.525,"Jang, 2015",0.339,"Jang, 2015",-1.8,"Jang, 2015",5,"Kunder, 2013"
+,NGC 6584,Milky Way,"Jang, 2015",1,1,I,0.569,"Sollima, 2014",0.304,"Jang, 2015",-1.5,"Sollima, 2014",,
+M2,NGC 7089,Milky Way,"Jang, 2015",1,5,II,0.681,"Sollima, 2014",0.327,"Jang, 2015",-1.66,"Sollima, 2014",18,"Kunder, 2013"
+M22,NGC 6656,Milky Way,"Jang, 2015",1,2,II,0.627,"Sollima, 2014",0.33,"Jang, 2015",-1.7,"Sollima, 2014",,
+Rup 106,Ruprecht 106,Milky Way,"Jang, 2015",1,1,I,0.617,"Sollima, 2014",,,-1.78,"Sollima, 2014",12,"Kunder, 2013"
+,NGC 4833,Milky Way,"Jang, 2015",1,1,II,0.701,"Sollima, 2014",0.38,"Jang, 2015",-1.89,"Sollima, 2014",,
+,F2,Fornax dSph,"Sollima, 2014",1,1,I,0.574,"Sollima, 2014",,,-1.83,"Sollima, 2014",,
+,F3,Fornax dSph,"Sollima, 2014",1,1,Oo-Int,0.606,"Sollima, 2014",,,-2.04,"Sollima, 2014",,
+,F4,Fornax dSph,"Sollima, 2014",1,1,Oo-Int,0.6,"Sollima, 2014",,,-1.9,"Sollima, 2014",,
+,NGC 362,Milky Way,"Jang, 2015",1,2,I,0.585,"Jang, 2015",0.365,"Jang, 2015",-1.26,"Jang, 2015",21,"Kunder, 2013"
+,NGC 1851,Milky Way,"Jang, 2015",1,4,I,0.571,"Clement, 2001",0.311,"Jang, 2015",-1.22,"Clement, 2001",19,"Kunder, 2013"
+,NGC 2419,Milky Way,"Jang, 2015",1,3,II,0.655,"Clement, 2001",0.367,"Jang, 2015",-2.12,"Clement, 2001",28,"Kunder, 2013"
+,NGC 2808,Milky Way,"Jang, 2015",1,1,I,0.563,"Jang, 2015",0.3,"Jang, 2015",-1.14,"Jang, 2015",6,"Kunder, 2013"
+M92,NGC 6341,Milky Way,"Jang, 2015",1,4,II,0.63,"Clement, 2001",0.356,"Jang, 2015",-2.29,"Clement, 2001",11,"Kunder, 2013"
+,NGC 6426,Milky Way,"Jang, 2015",1,3,II,0.704,"Jang, 2015",0.332,"Jang, 2015",-2.15,"Jang, 2015",8,"Kunder, 2013"
+M28,NGC 6626,Milky Way,"Jang, 2015",1,1,I,0.577,"Jang, 2015",0.312,"Jang, 2015",-1.32,"Jang, 2015",8,"Kunder, 2013"
+,NGC 6712,Milky Way,"Jang, 2015",1,1,I,0.557,"Jang, 2015",0.338,"Jang, 2015",-1.02,"Jang, 2015",7,"Kunder, 2013"
+,NGC 6723,Milky Way,"Jang, 2015",1,1,I,0.541,"Clement, 2001",0.292,"Jang, 2015",-1.12,"Clement, 2001",15,"Kunder, 2013"
+M55,NGC 6809,Milky Way,"Jang, 2015",2,3,Conflicted,0.662,"Jang, 2015",0.34,"Jang, 2015",-1.94,"Jang, 2015",4,"Kunder, 2013"
+M75,NGC 6864,Milky Way,"Jang, 2015",2,3,Conflicted,0.587,"Jang, 2015",0.305,"Jang, 2015",-1.29,"Jang, 2015",8,"Kunder, 2013"
+M30,NGC 7099,Milky Way,"Jang, 2015",1,1,II,0.693,"Jang, 2015",,,-2.27,"Jang, 2015",,
+,NGC 2298,Milky Way,"Clement, 2001",1,1,II,,,,,,,,
+,NGC 6366,Milky Way,"Clement, 2001",1,1,I,,,,,,,,
+,NGC 288,Milky Way,"Clement, 2001",1,1,II,,,,,,,,
+M79,NGC 1904,Milky Way,"Clement, 2001",1,2,II,,,,,-1.58,"Kunder, 2013",6,"Kunder, 2013"
+,NGC 7492,Milky Way,"Clement, 2001",1,1,II,,,,,,,,
+,NGC 1835,Magellanic Clouds,"Soszyński, 2016",1,1,Oo-Int,,,,,-1.79,"Clementini, 2004",,
