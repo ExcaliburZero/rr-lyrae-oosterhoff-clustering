@@ -1,14 +1,47 @@
 \documentclass[]{article}
 
+\usepackage[a4paper, margin=1in]{geometry}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+
+\pagenumbering{roman}
+
 %opening
 \title{}
 \author{Christopher Wells}
 
 \begin{document}
 
-\maketitle
+\begin{center}
+	\vspace*{200pt}
+	
+	Clustering Fundamental-mode RR Lyrae in the Magellanic Clouds to Determine a New Boundary Line for the Oosterhoff Dichotomy
+	
+	\vspace{20pt}
+	
+	Christopher Wells
+	
+	Candidate for B.A. Degree
+	
+	in Computer Science
+	
+	\vspace{20pt}
+	
+	State University of New York, College at Oswego
+	
+	College Honors Program
+	
+	\vspace{20pt}
+	
+	December, 2018
+\end{center}
 
 \newpage
+
+\singlespacing
 
 \begin{abstract}
 	
@@ -18,9 +51,13 @@
 
 \newpage
 
+\doublespacing
+
 \tableofcontents
 
 \newpage
+
+\pagenumbering{arabic}
 
 \section{Advice to Future Honors Thesis Students}
 
@@ -38,11 +75,52 @@
 
 RR Lyrae are a type of radially pulsating, periodic variable star that are numerous in Local Group galaxies and examined due to their utility as distance indicators and indicators of early stellar composition. (Szczygiel et al. 2009, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are advanced age stars (> 10 Gyrs) that undergo radial pulsations, whereby they expand and contract radially over time. (Szczygiel et al. 2009, ?) These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which makes them periodic variable stars. (?) RR Lyrae are numerous in the Milky Way and other Local Group galaxies and are additionally easy to identify. (Soszyński, 2016, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are often researched due to their use as “standard candles”, or distance indicators.\cite{2016AcA....66..131S} (Soszyński, 2016) The intensity of the luminosity change caused by the periodic pulsations is correlated with the period of the pulsations, thus the period can be used to calculate the luminosity of the star which can be compared with the observed brightness of the star to determine its distance. (?)
 
-...
+\subsection{Light Curves}
+
+When examining variable stars, such as RR Lyrae, we often use diagrams called “light curves”. (?) Light curves are scatter plots of the observed brightness of a star over time, which showcase the characteristics of the variable star’s change in brightness. (?) Light curves are typically plotted as 2 dimensional scatter plots where the x-axis is the datetime in Mean Julian Days (MJD) and the y-axis is brightness in magnitudes. (?)
+
+Light curves are often used to plot brightness data collected by sky surveys over time, and since sky surveys observe many different stars they are limited in how frequently they can observe a particular star. (?) As a result, most observational light curve data has sparse sampling, which can make it more difficult to identify the characteristic variations of different types of variable stars. (?) For periodic variable stars, such as RR Lyrae, a variation on light curve plots is often used, whereby the brightness measurement times are folded over the period of the variation, as brightness modulus period.\footnote{Before attempting to plot a variable star this way a periodogram algorithm is run to identify if the variable star undergoes periodic variations, and if so what its period is. (?) Variable stars that do not undergo periodic variations, for example supernovae, are not plotted in such a way as such a plot would not make sense for variable stars without a period. (?)} (?) This process, often called period folding, makes the periodic variations of the periodic variable star a lot more apparent by leveraging the fact that while sampling for specific time periods may be low, the sampling for the periodic variation overall is much higher due to its repetition. (?)
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=6cm]{figures/light_curve_examples/light_curve_raw_i.png}
+		\label{fig:light_curve_raw_i}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=6cm]{figures/light_curve_examples/light_curve_folded_i.png}
+		\label{fig:sub2}
+	\end{subfigure}
+	\caption{Plots of the light curve (left) and period folded light curve (right) for the RRab (OGLE-LMC-RRLYR-00001) from the OGLE IV LMC dataset. In the light curve (left) the variance in the RRab’s brightness over time is visible, however, it is only in the period folded light curve (right) that the pattern of the variability is clearly shown.}
+	\label{fig:light_curves}
+\end{figure}
+
+\subsection{Properties \& Sub-Types}
+
+RR Lyrae are characterized mainly through a few different properties, both physical and those observed through their light curves. (?) One of the most commonly examined properties of RR Lyrae is their period, that is the time interval at which they repeat their pulsations and variance in brightness. (?) RR Lyrae typically have periods of 0.2 to 1.2 days. (Szczygiel et al. 2009) Another commonly examined property is amplitude, or the amount of change that the brightness of the star undergoes as a part of its regular pattern. (?) RR Lyrae typically have amplitudes of 0.2 to 1.6 mag in V photometric band light. (Szczygiel et al. 2009)
+
+… … … (metalicity, etc… ?)
+
+[plot of RR Lyrae light curve with period and amplitude annotated]
+
+There are several different sub-types of RR Lyrae that tend to have different characteristics due to the mode(s) that they pulsate in. (Chen, 2013) RR Lyrae that pulsate in the fundamental mode are known as RRab. RR Lyrae that pulsate in the first overtone mode are known as as RRc. RR Lyrae that pulsate in both the fundamental and first overtone modes are known as RRd. \footnote{This letter-based naming convention came from ...} \footnote{An additional sub-type of RR Lyrae called RRe, which had second overtone mode pulsations, was thought to exist. However, the existence of RRe has been debated in the literature. (Chen, 2013) For the OGLE IV data release, OGLE has stopped classifying stars as RRe, choosing to group in all stars previously classified as RRe to be RRc, so as to not separate the first and second overtone pulsators. They noted that they did this “because of the doubts whether the RRe stars exist at all”. (Soszyński, 2016)} \footnote{An alternate naming scheme using numbers is sometimes used. In this scheme RRab are called RR0, RRc are called RR1, RRd are called RR01, and RRe are called RR2. This system was introduced in Alcock et al. (2000) in order to allow for easier mnemonic memorization of the different types, with the 0 indicating fundamental mode, 1 indicating first overtone mode, and 2 indicating second overtone mode. (Chen, 2013) I have decided to use the letter-based naming convention instead due to OGLE’s use of it and since it seem to be the more popular naming scheme in the literature.} (Chen, 2013)
+
+These different type of RR Lyrae have different ranges of values for properties like period and amplitude. …. …. ….
 
 \newpage
 
 \section{Oosterhoff Dichotomy}
+
+In 1939, Pieter Oosterhoff published a paper on some observations he made about RR Lyrae in various globular clusters in the Milky Way galaxy. Oosterhoff noticed that if you examined the mean periods of the RRab and RRc in globular clusters, the globular clusters appeared to cluster into two groups. He found that M5 and M3 had lower RRab and RRc periods, while M53, M15, and ω Cen had higher RRab and RRc periods. (Oosterhoff, 1939) These two groups later became known as the Oostherhoff I (OoI) and Oosterhoff II (OoII) groups. (?)
+
+\begin{figure}
+	\centering
+	\includegraphics[width=8cm]{figures/globular_clusters/oosterhoff_1939.png}
+	\caption{A plot of the Milky Way globular clusters examined in Oosterhoff (1939). A gap is visible between the clusters of M5 + M3 and M53 + M15 + $\omega$ Cen.}
+	\label{fig:oosterhoff_1939_globular_clusters}
+\end{figure}
 
 \newpage
 
@@ -53,6 +131,8 @@ RR Lyrae are a type of radially pulsating, periodic variable star that are numer
 \section{Analysis}
 
 \newpage
+
+\singlespacing
 
 \section{References}
 
