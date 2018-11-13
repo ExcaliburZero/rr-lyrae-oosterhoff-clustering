@@ -36,7 +36,9 @@ SMC_INTERIM_FILES = \
 
 ANALYSIS = \
 	reports/RRab_OGLE_IV_Clustering.tex \
-	reports/RRab_OGLE_IV_Clustering_files/
+	reports/RRab_OGLE_IV_Clustering_files/ \
+	data/processed/light_curve_observation_stats.txt \
+	data/processed/type_statistics.csv
 
 .PHONY: all
 
@@ -73,7 +75,7 @@ data/raw/lmc/phot/: data/raw/lmc/phot.tar.gz
 	touch data/raw/lmc/phot/
 
 data/interim/lmc/RRab.csv data/interim/lmc/RRc.csv data/interim/lmc/RRd.csv data/interim/lmc/aRRd.csv data/interim/lmc/all.csv: data/raw/lmc/RRab.dat data/raw/lmc/RRc.dat data/raw/lmc/RRd.dat data/raw/lmc/aRRd.dat src/data/lmc/process_dat_files.py
-	mkdir data/interim/lmc
+	mkdir -p data/interim/lmc
 	python src/data/lmc/process_dat_files.py data/raw/lmc data/interim/lmc
 	touch data/interim/lmc
 
@@ -110,7 +112,7 @@ data/raw/smc/phot/: data/raw/smc/phot.tar.gz
 	touch data/raw/smc/phot/
 
 data/interim/smc/RRab.csv data/interim/smc/RRc.csv data/interim/smc/RRd.csv data/interim/smc/aRRd.csv data/interim/smc/all.csv: data/raw/smc/RRab.dat data/raw/smc/RRc.dat data/raw/smc/RRd.dat data/raw/smc/aRRd.dat src/data/smc/process_dat_files.py
-	mkdir data/interim/smc
+	mkdir -p data/interim/smc
 	python src/data/lmc/process_dat_files.py data/raw/smc data/interim/smc
 	touch data/interim/smc
 
@@ -123,3 +125,11 @@ data/interim/smc/curves/: data/raw/smc/phot/ src/data/smc/process_light_curves.p
 
 reports/RRab_OGLE_IV_Clustering.tex reports/RRab_OGLE_IV_Clustering_files/: notebooks/RRab_OGLE_IV_Clustering.ipynb data/interim/lmc/RRab.csv data/interim/smc/RRab.csv
 	jupyter nbconvert --output-dir="./reports" --execute --to latex notebooks/RRab_OGLE_IV_Clustering.ipynb
+
+data/processed/light_curve_observation_stats.txt: src/tools/light_curve_observation_stats.py data/interim/lmc/curves/ data/interim/smc/curves/
+	cd src/tools &&\
+		python light_curve_observation_stats.py > ../../data/processed/light_curve_observation_stats.txt
+
+data/processed/type_statistics.csv: src/tools/rr_lyrae_type_statistics.py data/interim/lmc/RRab.csv data/interim/lmc/RRc.csv data/interim/lmc/RRd.csv data/interim/lmc/aRRd.csv data/interim/smc/RRab.csv data/interim/smc/RRc.csv data/interim/smc/RRd.csv data/interim/smc/aRRd.csv
+	cd src/tools &&\
+		python rr_lyrae_type_statistics.py

@@ -6,19 +6,19 @@ import pandas as pd
 def main():
     print("LMC V band")
     print("----------")
-    print_light_curve_stats("../../data/raw/lmc/curves/V")
+    print_light_curve_stats("../../data/interim/lmc/curves/V")
 
     print("LMC I band")
     print("----------")
-    print_light_curve_stats("../../data/raw/lmc/curves/I")
+    print_light_curve_stats("../../data/interim/lmc/curves/I")
 
     print("SMC V band")
     print("----------")
-    print_light_curve_stats("../../data/raw/smc/curves/V")
+    print_light_curve_stats("../../data/interim/smc/curves/V")
 
     print("SMC I band")
     print("----------")
-    print_light_curve_stats("../../data/raw/smc/curves/I")
+    print_light_curve_stats("../../data/interim/smc/curves/I")
 
 def print_light_curve_stats(lc_dir):
     observation_counts = []

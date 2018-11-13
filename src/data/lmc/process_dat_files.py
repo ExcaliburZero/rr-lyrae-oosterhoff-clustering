@@ -17,8 +17,8 @@ def main():
     rrd_arrd_cols = ["id", "mean_I_magnitude", "mean_V_magnitude", "fo_period"
         , "fo_period_uncertainty", "fo_time_max_bright", "fo_I_amplitude"
         , "fo_R21", "fo_phi21", "fo_R31", "fo_phi31", "fm_period"
-        , "fm_period_uncertainty", "fm_time_max_bright", "fo_I_amplitude"
-        , "fo_R21", "fo_phi21", "fo_R31", "fo_phi31"]
+        , "fm_period_uncertainty", "fm_time_max_bright", "fm_I_amplitude"
+        , "fm_R21", "fm_phi21", "fm_R31", "fm_phi31"]
 
     column_sets = [
           rrab_rrc_cols
