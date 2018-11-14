@@ -6,6 +6,11 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{outlines}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{listings}
 
 \pagenumbering{roman}
 
@@ -18,7 +23,7 @@
 \begin{center}
 	\vspace*{200pt}
 	
-	Clustering Fundamental-mode RR Lyrae in the Magellanic Clouds to Determine a New Boundary Line for the Oosterhoff Dichotomy
+	\textbf{Clustering Fundamental-mode RR Lyrae in the Magellanic Clouds to Determine a New Boundary Line for the Oosterhoff Dichotomy}
 	
 	\vspace{20pt}
 	
@@ -136,11 +141,322 @@ In 1939, Pieter Oosterhoff published a paper on some observations he made about 
 
 \section{References}
 
-\bibliography{references} 
-\bibliographystyle{ieeetr4}
+\bibliographystyle{plain}
+\bibliography{references}
 
 \newpage
 
 \section{Appendices}
+
+\subsection{Collected Globular Cluster Information}
+
+\subsubsection{Globular Clusters Summary}
+
+This table contains information on various globular clusters, including information such as their location, suggested Oosterhoff classifications, and various summary statistics on their RRab and RRc.
+
+\vspace{12pt}
+
+Each row in the table contains information on one particular globular cluster.
+
+\vspace{12pt}
+
+This data was collected by examining different papers related to the Oosterhoff dichotomy and collecting data that was listed in various tables about globular clusters. This information was then put into a spreadsheet and filtered down to globular clusters that met the following inclusion criteria.
+
+\begin{itemize}
+	\item I was able to find at least one suggested Oosterhoff classification
+	\item The Oosterhoff classification was not ``mixed''
+	\item I was able to find information about the location of the globular cluster
+\end{itemize}
+
+\textbf{Link:} \url{https://github.com/ExcaliburZero/rr-lyrae-oosterhoff-clustering/blob/master/data/raw/gc_oosterhoff/Collected\%20Globular\%20Cluster\%20Information\%20-\%20Globular\%20Clusters\%20Summary.csv}
+
+\paragraph{Columns}
+
+\begin{outline}
+	\1 Name
+	\2 The non-NGC name of the globular cluster. (if any) (ex. M3, M5, M72)
+	\1 NGC
+	\2 The NGC designation of the globular cluster, or the globular cluster’s name if an NGC designation could not be found. (ex. NGC 5272, NGC 5904, NGC 6121)
+	\1 GC Location
+	\2 The location of the globular cluster. (ex. Milky Way, LMC, Fornax dSph, ...)
+	\1 GC Location Source
+	\2 The paper that mentions the location of the globular cluster.
+	\1 Num Oost Types
+	\2 The number of different Oosterhoff classifications that were mentioned by papers for the globular cluster.
+	\1 Num Oost Sources
+	\2 The number of different papers that mentioned an Oosterhoff classification for the globular cluster.
+	\1 Oost Type
+	\2 The Oosterhoff classification mentioned in papers for the globular cluster. (ex. I, II, III, Oo-Int, Conflicted)
+	\2 ``Conflicted'' indicates that more than one Oosterhoff classification has been suggested for the globular cluster.
+	\1 Mean RRab Period
+	\2 The mean period of known RRab stars in the globular cluster.
+	\1 Mean RRab Period Source
+	\2 The paper that mentions the ``Mean RRab Period'' of the globular cluster.
+	\1 Mean RRc Period
+	\2 The mean period of known RRc stars in the globular cluster.
+	\1 Mean RRc Period Source
+	\2 The paper that mentions the ``Mean RRc Period'' of the globular cluster.
+	\1 Metalicity
+	\2 The iron abundance/metallicity of the globular cluster.
+	\1 Metalicity Source
+	\2 The paper the mentions the ``Metallicity'' of the globular cluster.
+	\1 \# RRab
+	\2 The number of known RRab stars in the globular cluster.
+	\1 \# RRab Source
+	\2 The paper that mentions the ``\# RRab''.
+\end{outline}
+
+\newpage
+
+\subsubsection{Oosterhoff Classifications}
+
+This table contains information on mentions of the Oosterhoff classifications of various globular clusters. This information was used to create the ``Num Oost Types'', ``Num Oost Sources'', and ``Oost Type'' columns in the ``Globular Clusters Summary'' table.
+
+\vspace{12pt}
+
+Additionally this table shows that there are some globular clusters that have had multiple different Oosterhoff classifications suggested by different papers in the literature.
+
+\vspace{12pt}
+
+This data was collected by looking through papers related to the Oosterhoff dichotomy and looking for mentions of the Oosterhoff classifications of globular clusters in the text of the paper or in tables in the paper. This information was then put into a spreadsheet and filtered down to globular clusters that met the same inclusion criteria as the ``Globular Clusters Summary'' table.
+
+\vspace{12pt}
+
+\textbf{Link:} \url{https://github.com/ExcaliburZero/rr-lyrae-oosterhoff-clustering/blob/master/data/raw/gc_oosterhoff/Collected\%20Globular\%20Cluster\%20Information\%20-\%20Oosterhoff\%20Classifications.csv}
+
+\paragraph{Columns}
+
+\begin{outline}
+	\1 Name
+	\2 The non-NGC name of the globular cluster. (if any) (ex. M3, M5, M72)
+	\1 NGC
+	\2 The NGC designation of the globular cluster, or the globular cluster’s name if an NGC designation could not be found. (ex. NGC 5272, NGC 5904, NGC 6121)
+	\1 Oost Type
+	\2 The Oosterhoff type that the paper suggests that the globular cluster is. (I, II, III, Oo-Int, Oo-Neutral)
+	\1 Source
+	\2 The paper that suggests the Oosterhoff classification for the globular cluster.
+	\1 Notes
+	\2 Miscellaneous notes about the particular Oosterhoff type classification.
+\end{outline}
+
+\newpage
+
+\begin{longtable}{
+	p{1.5cm}|
+	p{2.5cm}|
+	p{2.5cm}|
+	p{3.5cm}|
+	p{5.5cm}
+	@{}}
+		\textbf{Name}           & \textbf{NGC}          & \textbf{Oost Type}  & \textbf{Source}               & \textbf{Notes}                                                                  \vspace{12pt}\\
+		M3             & NGC 5272     & I          & Braga, 2016          &                                                                        \\
+		M5             & NGC 5904     & I          & Braga, 2016          &                                                                        \\
+		M4             & NGC 6121     & I          & Braga, 2016          &                                                                        \\
+		& NGC 6229     & I          & Braga, 2016          &                                                                        \\
+		& NGC 6362     & I          & Braga, 2016          &                                                                        \\
+		M72            & NGC 6981     & I          & Braga, 2016          &                                                                        \\
+		& IC 4499      & Oo-Int     & Braga, 2016          &                                                                        \\
+		& NGC 3201     & Oo-Int     & Braga, 2016          &                                                                        \\
+		M54            & NGC 6715     & Oo-Int     & Braga, 2016          &                                                                        \\
+		& NGC 6934     & Oo-Int     & Braga, 2016          &                                                                        \\
+		& NGC 7006     & Oo-Int     & Braga, 2016          &                                                                        \\
+		M68            & NGC 4590     & II         & Braga, 2016          &                                                                        \\
+		M53            & NGC 5024     & II         & Braga, 2016          &                                                                        \\
+		& NGC 5286     & II         & Braga, 2016          &                                                                        \\
+		M15            & NGC 7078     & II         & Braga, 2016          &                                                                        \\
+		& NGC 6388     & III        & Braga, 2016          &                                                                        \\
+		& NGC 6441     & III        & Braga, 2016          &                                                                        \\
+		& NGC 6388     & III        & Sollima, 2014        &                                                                        \\
+		& NGC 6441     & III        & Sollima, 2014        &                                                                        \\
+		& NGC 6229     & I          & Sollima, 2014        &                                                                        \\
+		M72            & NGC 6981     & I          & Sollima, 2014        &                                                                        \\
+		& NGC 6584     & I          & Sollima, 2014        &                                                                        \\
+		M3             & NGC 5272     & I          & Sollima, 2014        &                                                                        \\
+		& NGC 3201     & I          & Sollima, 2014        &                                                                        \\
+		& NGC 6934     & I          & Sollima, 2014        &                                                                        \\
+		& IC 4499      & I          & Sollima, 2014        &                                                                        \\
+		M2             & NGC 7089     & II         & Sollima, 2014        &                                                                        \\
+		M22            & NGC 6656     & II         & Sollima, 2014        &                                                                        \\
+		& NGC 5286     & II         & Sollima, 2014        &                                                                        \\
+		& NGC 4833     & II         & Sollima, 2014        &                                                                        \\
+		& NGC 1466     & Oo-Int     & Sollima, 2014        &                                                                        \\
+		& F2           & I          & Sollima, 2014        &                                                                        \\
+		& F3           & Oo-Int     & Sollima, 2014        &                                                                        \\
+		& F4           & Oo-Int     & Sollima, 2014        &                                                                        \\
+		& NGC 6441     & III        & Jang, 2015           &                                                                        \\
+		& NGC 6388     & III        & Jang, 2015           &                                                                        \\
+		& NGC 1466     & Oo-Int     & Kuehn, 2013          &                                                                        \\
+		& NGC 2210     & Oo-Int     & Kuehn, 2013          &                                                                        \\
+		M3             & NGC 5272     & I          & Kuehn, 2013          &                                                                        \\
+		M15            & NGC 7078     & II         & Kuehn, 2013          &                                                                        \\
+		M75            & NGC 6864     & Oo-Int     & Kuehn, 2013          &                                                                        \\
+		M75            & NGC 6864     & Oo-Int     & Corwin, 2003         &                                                                        \\
+		& NGC 362      & I          & SzĂŠkely, 2007       &                                                                        \\
+		& NGC 2419     & II         & Di Criscienzo, 2011  &                                                                        \\
+		& NGC 1835     & Oo-Int     & Clementini, 2004     &                                                                        \\
+		M15            & NGC 7078     & II         & Clementini, 2004     &                                                                        \\
+		M68            & NGC 4590     & II         & Clementini, 2004     &                                                                        \\
+		& IC 4499      & I          & Clement, 1991        &                                                                        \\
+		M3             & NGC 5272     & I          & Clement, 1991        &                                                                        \\
+		M68            & NGC 4590     & II         & Clement, 1991        &                                                                        \\
+		& NGC 2419     & II         & Clement, 1991        &                                                                        \\
+		M15            & NGC 7078     & II         & Clement, 1991        &                                                                        \\
+		& NGC 6426     & II         & Clement, 1991        &                                                                        \\
+		M3             & NGC 5272     & I          & Smolec, 2017         &                                                                        \\
+		& NGC 6362     & I          & Smolec, 2017         &                                                                        \\
+		Omega Centauri & NGC 5139     & II         & Smolec, 2017         &                                                                        \\
+		M62            & NGC 6266     & I          & Contreras, 2010      &                                                                        \\
+		M15            & NGC 7078     & II         & Contreras, 2010      &                                                                        \\
+		& NGC 6362     & I          & Contreras, 2010      &                                                                        \\
+		M107           & NGC 6171     & I          & Contreras, 2010      &                                                                        \\
+		M5             & NGC 5904     & I          & Contreras, 2010      &                                                                        \\
+		& NGC 6229     & I          & Contreras, 2010      &                                                                        \\
+		& NGC 6934     & I          & Contreras, 2010      &                                                                        \\
+		M3             & NGC 5272     & I          & Contreras, 2010      &                                                                        \\
+		M2             & NGC 7089     & II         & Contreras, 2010      &                                                                        \\
+		& NGC 5286     & II         & Contreras, 2010      &                                                                        \\
+		M55            & NGC 6809     & II         & Contreras, 2010      &                                                                        \\
+		& NGC 4147     & I          & Contreras, 2010      &                                                                        \\
+		& NGC 2298     & II         & Contreras, 2010      &                                                                        \\
+		M68            & NGC 4590     & II         & Contreras, 2010      &                                                                        \\
+		M92            & NGC 6341     & II         & Contreras, 2010      &                                                                        \\
+		M9             & NGC 6333     & II         & Arellano Ferro, 2013 &                                                                        \\
+		M53            & NGC 5024     & II         & Arellano Ferro, 2013 &                                                                        \\
+		M15            & NGC 7078     & II         & Arellano Ferro, 2013 &                                                                        \\
+		M68            & NGC 4590     & II         & Arellano Ferro, 2013 &                                                                        \\
+		& NGC 6388     & III        & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 6441     & III        & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 1851     & I          & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 3201     & I          & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 4147     & I          & Arellano Ferro, 2017 &                                                                        \\
+		M3             & NGC 5272     & I          & Arellano Ferro, 2017 &                                                                        \\
+		M5             & NGC 5904     & I          & Arellano Ferro, 2017 &                                                                        \\
+		M107           & NGC 6171     & I          & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 6229     & I          & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 6362     & I          & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 6366     & I          & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 6934     & I          & Arellano Ferro, 2017 &                                                                        \\
+		M72            & NGC 6981     & I          & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 288      & II         & Arellano Ferro, 2017 &                                                                        \\
+		M79            & NGC 1904     & II         & Arellano Ferro, 2017 &                                                                        \\
+		M68            & NGC 4590     & II         & Arellano Ferro, 2017 &                                                                        \\
+		M53            & NGC 5024     & II         & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 5053     & II         & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 5466     & II         & Arellano Ferro, 2017 &                                                                        \\
+		M9             & NGC 6333     & II         & Arellano Ferro, 2017 &                                                                        \\
+		M92            & NGC 6341     & II         & Arellano Ferro, 2017 &                                                                        \\
+		M15            & NGC 7078     & II         & Arellano Ferro, 2017 &                                                                        \\
+		M2             & NGC 7089     & II         & Arellano Ferro, 2017 &                                                                        \\
+		M30            & NGC 7099     & II         & Arellano Ferro, 2017 &                                                                        \\
+		& NGC 7492     & II         & Arellano Ferro, 2017 &                                                                        \\
+		M3             & NGC 5272     & I          & Jeffery, 2011        &                                                                        \\
+		M15            & NGC 7078     & II         & Stetson, 2014        &                                                                        \\
+		M68            & NGC 4590     & II         & Stetson, 2014        &                                                                        \\
+		M22            & NGC 6656     & II         & Stetson, 2014        &                                                                        \\
+		& NGC 3201     & I          & Stetson, 2014        &                                                                        \\
+		& NGC 1851     & I          & Stetson, 2014        &                                                                        \\
+		& NGC 4147     & I          & Stetson, 2014        &                                                                        \\
+		M54            & NGC 6715     & I          & Stetson, 2014        & This and M4 could be Oo-Int depending on the classification diagnostic \\
+		M4             & NGC 6121     & Oo-Neutral & Stetson, 2014        &                                                                        \\
+		M5             & NGC 5904     & Oo-Neutral & Stetson, 2014        &                                                                        \\
+		M9             & NGC 6333     & II         & Clement, 2001        &                                                                        \\
+		M68            & NGC 4590     & II         & Clement, 2001        &                                                                        \\
+		M55            & NGC 6809     & II         & Clement, 2001        &                                                                        \\
+		& NGC 6426     & II         & Clement, 2001        &                                                                        \\
+		M2             & NGC 7089     & II         & Clement, 2001        &                                                                        \\
+		M53            & NGC 5024     & II         & Clement, 2001        &                                                                        \\
+		M92            & NGC 6341     & II         & Clement, 2001        &                                                                        \\
+		M15            & NGC 7078     & II         & Clement, 2001        &                                                                        \\
+		M3             & NGC 5272     & I          & Clement, 2001        &                                                                        \\
+		M107           & NGC 6171     & I          & Clement, 2001        &                                                                        \\
+		M5             & NGC 5904     & I          & Clement, 2001        &                                                                        \\
+		& NGC 6229     & I          & Clement, 2001        &                                                                        \\
+		M15            & NGC 7078     & II         & Jang, 2014           &                                                                        \\
+		M3             & NGC 5272     & I          & Jang, 2014           &                                                                        \\
+		M68            & NGC 4590     & II         & Jang, 2014           &                                                                        \\
+		& NGC 5053     & II         & Jang, 2014           &                                                                        \\
+		& NGC 5466     & II         & Jang, 2014           &                                                                        \\
+		& NGC 6441     & III        & Jang, 2014           &                                                                        \\
+		& NGC 1851     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 362      & I          & Kunder, 2013         &                                                                        \\
+		& NGC 3201     & I          & Kunder, 2013         &                                                                        \\
+		M68            & NGC 4590     & II         & Kunder, 2013         &                                                                        \\
+		& IC 4499      & I          & Kunder, 2013         &                                                                        \\
+		Rup 106        & Ruprecht 106 & I          & Kunder, 2013         &                                                                        \\
+		& NGC 5053     & II         & Kunder, 2013         &                                                                        \\
+		& NGC 6934     & I          & Kunder, 2013         &                                                                        \\
+		M72            & NGC 6981     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 7006     & I          & Kunder, 2013         &                                                                        \\
+		M15            & NGC 7078     & II         & Kunder, 2013         &                                                                        \\
+		Omega Centauri & NGC 5139     & II         & Kunder, 2013         &                                                                        \\
+		M3             & NGC 5272     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 5466     & II         & Kunder, 2013         &                                                                        \\
+		& NGC 6229     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 6426     & II         & Kunder, 2013         &                                                                        \\
+		& NGC 6441     & III        & Kunder, 2013         &                                                                        \\
+		& NGC 6388     & III        & Kunder, 2013         &                                                                        \\
+		M62            & NGC 6266     & I          & Kunder, 2013         &                                                                        \\
+		M9             & NGC 6333     & II         & Kunder, 2013         &                                                                        \\
+		M92            & NGC 6341     & II         & Kunder, 2013         &                                                                        \\
+		& NGC 6362     & I          & Kunder, 2013         &                                                                        \\
+		M28            & NGC 6626     & I          & Kunder, 2013         &                                                                        \\
+		M5             & NGC 5904     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 5986     & II         & Kunder, 2013         &                                                                        \\
+		M4             & NGC 6121     & I          & Kunder, 2013         &                                                                        \\
+		M107           & NGC 6171     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 6712     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 6723     & I          & Kunder, 2013         &                                                                        \\
+		M75            & NGC 6864     & I          & Kunder, 2013         &                                                                        \\
+		M53            & NGC 5024     & II         & Kunder, 2013         &                                                                        \\
+		M2             & NGC 7089     & II         & Kunder, 2013         &                                                                        \\
+		& NGC 2419     & II         & Kunder, 2013         &                                                                        \\
+		& NGC 1851     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 5286     & II         & Kunder, 2013         &                                                                        \\
+		& NGC 2808     & I          & Kunder, 2013         &                                                                        \\
+		& NGC 4147     & I          & Kunder, 2013         &                                                                        \\
+		M55            & NGC 6809     & I          & Kunder, 2013         &                                                                        \\
+		M54            & NGC 6715     & I          & Kunder, 2013         &                                                                        \\
+		M79            & NGC 1904     & II         & Kunder, 2013         &                                                                        \\
+		M3             & NGC 5272     & I          & Pritzl, 2000         &                                                                        \\
+		M15            & NGC 7078     & II         & Pritzl, 2000         &                                                                        \\
+		M3             & NGC 5272     & I          & Kinemuchi, 2006      &                                                                        \\
+		Omega Centauri & NGC 5139     & II         & Kinemuchi, 2006      &                                                                       
+\end{longtable}
+
+\newpage
+
+\subsection{Reproducibility Directions}
+All of the code used for the data analysis performed is available at the GitHub repository below.
+
+\vspace{12pt}
+
+\url{https://github.com/ExcaliburZero/rr-lyrae-oosterhoff-clustering}
+
+\vspace{12pt}
+
+The repository includes a Makefile, which can be used to download all of the data from the OGLE website, perform the data analysis, and generate the reports with the results.
+
+\vspace{12pt}
+
+The data analysis scripts were written on an Ubuntu Linux machine, so they should work on all Linux distributions and Mac. However, no guarantee as to whether they will work on a Windows machine.
+
+\vspace{12pt}
+
+The data analysis scripts depend on the following software, so to re-run the analysis you will need to install the following programs.
+
+\begin{itemize}
+	\item Pipenv	-	\url{https://pipenv.readthedocs.io/en/latest/}
+	\item Pyenv		-	\url{https://github.com/pyenv/pyenv}
+\end{itemize}
+
+Once you have these dependencies installed, you can download and run the analysis scripts by running the following terminal commands.
+
+\vspace{12pt}
+
+\begin{lstlisting}[language=bash]
+git clone https://github.com/ExcaliburZero/rr-lyrae-oosterhoff-clustering
+pipenv install
+make
+\end{lstlisting}
 
 \end{document}
