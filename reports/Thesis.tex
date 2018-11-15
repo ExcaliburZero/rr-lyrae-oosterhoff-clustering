@@ -12,6 +12,8 @@
 \usepackage{pdflscape}
 \usepackage{listings}
 
+\usepackage[final]{pdfpages}
+
 \newcommand{\mnras}{Monthly Notices of the Royal Astronomical Society}
 \newcommand{\aap}{Astronomy and Astrophysics}
 \newcommand{\aj}{The Astronomical Journal}
@@ -85,13 +87,19 @@
 
 \section{RR Lyrae}
 
-RR Lyrae are a type of radially pulsating, periodic variable star that are numerous in Local Group galaxies and examined due to their utility as distance indicators and indicators of early stellar composition. (Szczygiel et al. 2009, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are advanced age stars (> 10 Gyrs) that undergo radial pulsations, whereby they expand and contract radially over time. (Szczygiel et al. 2009, ?) These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which makes them periodic variable stars. (?) RR Lyrae are numerous in the Milky Way and other Local Group galaxies and are additionally easy to identify. (Soszyński, 2016, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are often researched due to their use as “standard candles”, or distance indicators.\cite{2016AcA....66..131S} (Soszyński, 2016) The intensity of the luminosity change caused by the periodic pulsations is correlated with the period of the pulsations, thus the period can be used to calculate the luminosity of the star which can be compared with the observed brightness of the star to determine its distance. (?)
+RR Lyrae are a type of radially pulsating, periodic variable star that are numerous in Local Group galaxies and examined due to their utility as distance indicators and indicators of early stellar composition. \cite{szczygiel_2009, kinemuchi_2006_a} (Szczygiel et al. 2009, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are advanced age stars (> 10 Gyrs) that undergo radial pulsations, whereby they expand and contract radially over time. (Szczygiel et al. 2009, ?) These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which makes them periodic variable stars. (?) RR Lyrae are numerous in the Milky Way and other Local Group galaxies and are additionally easy to identify. (Soszyński, 2016, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are often researched due to their use as “standard candles”, or distance indicators.\cite{soszynski_2016} (Soszyński, 2016) The intensity of the luminosity change caused by the periodic pulsations is correlated with the period of the pulsations, thus the period can be used to calculate the luminosity of the star which can be compared with the observed brightness of the star to determine its distance. (?)
 
 \subsection{Light Curves}
 
-When examining variable stars, such as RR Lyrae, we often use diagrams called “light curves”. (?) Light curves are scatter plots of the observed brightness of a star over time, which showcase the characteristics of the variable star’s change in brightness. (?) Light curves are typically plotted as 2 dimensional scatter plots where the x-axis is the datetime in Mean Julian Days (MJD) and the y-axis is brightness in magnitudes. (?)
+When examining variable stars, such as RR Lyrae, we often are working with data on the brightness of the variable star over a given period of time. Sky surveys that gather data on variable stars take photometric brightness measurements of many different variable stars at various different points in time. These brightness measurements over time for a particular variable star are called a light curve. (?)
 
-Light curves are often used to plot brightness data collected by sky surveys over time, and since sky surveys observe many different stars they are limited in how frequently they can observe a particular star. (?) As a result, most observational light curve data has sparse sampling, which can make it more difficult to identify the characteristic variations of different types of variable stars. (?) For periodic variable stars, such as RR Lyrae, a variation on light curve plots is often used, whereby the brightness measurement times are folded over the period of the variation, as brightness modulus period.\footnote{Before attempting to plot a variable star this way a periodogram algorithm is run to identify if the variable star undergoes periodic variations, and if so what its period is. (?) Variable stars that do not undergo periodic variations, for example supernovae, are not plotted in such a way as such a plot would not make sense for variable stars without a period. (?)} (?) This process, often called period folding, makes the periodic variations of the periodic variable star a lot more apparent by leveraging the fact that while sampling for specific time periods may be low, the sampling for the periodic variation overall is much higher due to its repetition. (?)
+By examining the light curve of a variable star we can get an idea of the type of brightness variation that the variable star is undergoing. Different types of variable stars tend to have different characteristic patterns of brightness variation. (?)
+
+Light curves are typically plotted as a scatter plot where the x-axis is the time of the observation in Mean Julian Days (MJD) and the y-axis is the brightness of the star in magnitude. (?)
+
+In the case of periodic variable stars, like RR Lyrae, a transformation called period folding is often applied to the light curve to look specifically at the periodic variation that the star undergoes. To period fold a light curve, the time for each brightness measurement is “folded” over the period of the star by taking the remainder of the division of the time by the period to get the “phase” of the observation. \footnote{For non-periodic variable stars, period folding of the light curve is not possible, since the star does not have a variation period to fold the observations over. (?)} (?)
+
+This “period folded light curve” makes it easier to see the pattern of variation that a periodic variable star undergoes, since some periodic variable stars undergo variations that have a higher frequency than the frequency at which the survey observes them. For such periodic variable stars it is difficult to see the variation pattern as each instance of the pattern may have only a few observations. However, when the light curve is period folded, the different instances of the variation pattern line up over one another, making the repeated pattern more apparent. So the low sampling of each instance of the pattern is countered by the high sampling of all of the instances of the pattern as a whole.
 
 \begin{figure}
 	\centering
@@ -121,11 +129,25 @@ There are several different sub-types of RR Lyrae that tend to have different ch
 
 These different type of RR Lyrae have different ranges of values for properties like period and amplitude. …. …. ….
 
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+	\hline
+	Sub-type & Mean FM Period & Mean FM I-band Amplitude & Mean FO Period & Mean FO I-band Amplitude \\
+	\hline
+	RRab & 0.58 & 0.53 & - & - \\
+	RRc & - & - & 0.33 & 0.26 \\
+	RRd & 0.49 & 0.16 & 0.36 & 0.26 \\
+	\hline
+\end{tabular}
+\captionof{table}{Summary information on the properties of the RR Lyrae sub-types calculated using the data from the OGLE IV data release.\cite{soszynski_2016} Column names containing “FM” refer to the fundamental mode pulsations and column names containing “FO” refer to the first overtone mode pulsations. A dash indicates that a column is not applicable for a particular sub-type.}
+\end{center}
+
 \newpage
 
 \section{Oosterhoff Dichotomy}
 
-In 1939, Pieter Oosterhoff published a paper on some observations he made about RR Lyrae in various globular clusters in the Milky Way galaxy. Oosterhoff noticed that if you examined the mean periods of the RRab and RRc in globular clusters, the globular clusters appeared to cluster into two groups. He found that M5 and M3 had lower RRab and RRc periods, while M53, M15, and ω Cen had higher RRab and RRc periods. (Oosterhoff, 1939) These two groups later became known as the Oostherhoff I (OoI) and Oosterhoff II (OoII) groups. (?)
+In 1939, Pieter Oosterhoff published a paper on some observations he made about RR Lyrae in various globular clusters in the Milky Way galaxy. Oosterhoff noticed that if you examined the mean periods of the RRab and RRc in globular clusters, the globular clusters appeared to cluster into two groups. He found that M5 and M3 had lower RRab and RRc periods, while M53, M15, and ω Cen had higher RRab and RRc periods. \footnote{Globular clusters are typically referred to either by their NGC identifier (like NGC 5024), an M followed by a number (like M53), or a specific name (like ω Cen). (?) See the appendix ... … … … for a list of globular clusters and their various names.} (Oosterhoff, 1939) These two groups later became known as the Oostherhoff I (OoI) and Oosterhoff II (OoII) groups. (?)
 
 \begin{figure}
 	\centering
@@ -134,13 +156,106 @@ In 1939, Pieter Oosterhoff published a paper on some observations he made about 
 	\label{fig:oosterhoff_1939_globular_clusters}
 \end{figure}
 
+While Oosterhoff originally examined globular clusters in terms of the mean and median RRab and RRc periods, research since has looked at other parameters as well in terms of the Oosterhoff dichotomy. (?) ...
+
+However, examinations of globular clusters outside of the Milky Way found some globular clusters that exist in between these two groups, in the Oosterhoff gap. (?) Globular clusters that fell in between the Oosterhoff I and Oosterhoff II groups became known as Oosterhoff intermediate (Oo-Int) globular clusters. (?)
+
+\begin{figure}
+	\centering
+	\includegraphics[width=17cm]{figures/globular_clusters/globular_clusters_by_oosterhoff_type.png}
+	\caption{A plot of modern data on globular clusters showing the Oosterhoff classifications for each that are agreed upon in the literature. Shows both Milky Way and non-Milky Way globular clusters. ``Conflicted'' indicates that multiple different classifications have been suggested in different papers. (see section ~\ref{sec:app_globular_clusters_summary}~ \nameref{sec:app_globular_clusters_summary})}
+	\label{fig:modern_globular_clusters}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=17cm]{figures/globular_clusters/globular_clusters_by_location.png}
+	\caption{A plot of the modern data on globular clusters with agreed upon Oosterhoff classifications, broken up into Milky Way and non-Milky Way globular clusters. Shows that the plotted Oosterhoff Intermediate clusters are all not in the Milky Way galaxy. (see section ~\ref{sec:app_globular_clusters_summary}~ \nameref{sec:app_globular_clusters_summary})}
+	\label{fig:modern_globular_clusters_location}
+\end{figure}
+
 \newpage
 
 \section{Clustering}
 
+Clustering is a process of applying algorithms to data in order to separate a dataset into multiple sub groups, or clusters, that have differing properties. (?) The idea is to partition the data into clusters such that in cluster distance is minimized, or rather the in group similarity should be high. Additionally the intracluster distance should be maximized, or rather the similarity between things in different clusters should be low. (?)
+
+By applying clustering algorithms to a dataset, we can learn more about sub-categories that exist in the data. (?) … … …
+
+The clustering algorithm that I used for the data analysis I performed was K-Means clustering. K-Means clustering is an algorithm that takes a number of clusters to look for (called k) and works by making random initial guesses for the k clusters and gradually refining them until a convergence threshold or iteration limit is reached. (?) … (more on K-Means algorithm)
+
+
+… … …
+
+
 \newpage
 
-\section{Analysis}
+\section{Data Analysis}
+
+To learn more about the Oosterhoff dichotomy I wanted to try applying clustering algorithms to the fairly recent OGLE IV dataset to see if I could separate the RRab into two clusters that have properties that correspond to the two main Oosterhoff groups.
+
+\subsection{OGLE IV Dataset}
+
+OGLE IV is a dataset that includes data on RR Lyrae present in the Large and Small Magellanic Clouds. (?) The Large and Small Magellanic clouds, also referred to as the LMC and SMC respectively, are two galaxies in the Local Group that orbit the Milky Way galaxy. (?) They are of particular interest because of their proximity to the Milky Way. (?)
+
+The OGLE IV dataset contains data on a total of 45,451 RR Lyrae, 39,082 in the LMC and 6,369 in the SMC. \cite{soszynski_2016} … (add breakdown by cluster and RR type)
+
+The OGLE IV dataset contains light curves for the RR Lyrae in both I and V photometric bands. The I band light curves are highly sampled over time, while the V band light curves are more sparse. \cite{soszynski_2016}
+
+\begin{center}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\multicolumn{4}{|c|}{LMC} \\
+		\hline
+		Band & Num RR Lyrae & Mean \# Observations & Std Dev Observations \\
+		\hline
+		I & 39,609 & 491 & 216 \\
+		V & 37,169 & 100 & 79 \\
+		\hline
+		\multicolumn{4}{|c|}{SMC} \\
+		\hline
+		Band & Num RR Lyrae & Mean \# Observations & Std Dev Observations \\
+		\hline
+		I & 6,560 & 404 & 150 \\
+		V & 6,308 & 37 & 32 \\		
+		\hline
+	\end{tabular}
+	\captionof{table}{OGLE IV Light Curve Observation Count Summaries}
+\end{center}
+
+\subsection{Applying Clustering}
+When I was analyzing the data from the OGLE IV dataset I focused on the RRab in particular. This was in part due to the dataset having a larger number of RRab light curves than RRc or RRd. (?)
+
+In working with the OGLE IV data, there were a few parameters of RRab that I was looking at in particular.
+
+…
+…
+...
+
+I wanted to find a way to separate the RRab population in a way that transfers beyond a particular one of Magellanic clouds
+
+…
+…
+…
+
+Initially I looked into a few different clustering techniques to see if any of them would be good to try on the data. I tried using K-Means clustering and Spectral Clustering, but neither of these techniques achieved the separation I was looking for.
+
+Looking more closely at the data, I noticed that the groups seemed to follow a trend in period and I band amplitude. Additionally the two groups seemed to be separated by a boundary that follows a similar shape to the trend in the data. So I figured that it would be best to try using a clustering technique that would fit clusters based on a boundary with such a shape.
+
+Many clustering techniques like K-Means clustering tend to fit “blob-like” clusters, so I figured that using such a technique on its own would not be the best approach due to the apparent shape of the groups having a “non-blob” shape.
+
+So I decided to try taking an approach similar to how a kernel function is used, where I would pre-transform the data points into a feature space where clustering algorithms would be able to more easily fit a boundary line of a particular shape.
+
+In order to determine the transformation to apply to the data before using the clustering algorithm, I fit a polynomial trend line to the data. In order to do this, I fit the trendline to only the more densely populated regions, as the more sparse regions caused odd behavior in the trend line.
+
+… … …
+
+With the trend line, I could subtract out the influence line from the data to get a 1 dimensional space, where a boundary value would separate out the original data in a line with the shape of the fitted trend line. Then I was able to apply K-Means clustering to the data to achieve the following clusters.
+
+[add image]
+
+… … …
+
 
 \newpage
 
@@ -148,8 +263,11 @@ In 1939, Pieter Oosterhoff published a paper on some observations he made about 
 
 \section{References}
 
+\begingroup
+\renewcommand{\section}[2]{}
 \bibliographystyle{plain}
 \bibliography{references}
+\endgroup
 
 \newpage
 
@@ -158,6 +276,7 @@ In 1939, Pieter Oosterhoff published a paper on some observations he made about 
 \subsection{Collected Globular Cluster Information}
 
 \subsubsection{Globular Clusters Summary}
+\label{sec:app_globular_clusters_summary}
 
 This table contains information on various globular clusters, including information such as their location, suggested Oosterhoff classifications, and various summary statistics on their RRab and RRc.
 
@@ -216,6 +335,7 @@ This data was collected by examining different papers related to the Oosterhoff 
 \newpage
 
 \subsubsection{Oosterhoff Classifications}
+\label{sec:app_oosterhoff_classifications}
 
 This table contains information on mentions of the Oosterhoff classifications of various globular clusters. This information was used to create the ``Num Oost Types'', ``Num Oost Sources'', and ``Oost Type'' columns in the ``Globular Clusters Summary'' table.
 
@@ -465,5 +585,21 @@ git clone https://github.com/ExcaliburZero/rr-lyrae-oosterhoff-clustering
 pipenv install
 make
 \end{lstlisting}
+
+\newpage
+
+\includepdf[
+%% Include all pages of the PDF
+pages=-,
+%% make this page have the usual page style
+%% (you can change it to plain etc). By default pdfpages
+%% sets the pagecommand to \pagestyle{empty}
+%pagecommand={\pagestyle{headings}},  
+pagecommand={},  
+%% Add a "section" entry to the ToC with the heading
+%% "Quilling Shapes" and the label "sec:shapes"
+addtotoc={1,subsection,1,Data Analysis Jupyter Notebook,sec:shapes}]
+%% The pdf file itself
+{RRab_OGLE_IV_Clustering.pdf}
 
 \end{document}
