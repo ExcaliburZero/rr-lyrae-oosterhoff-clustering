@@ -148,12 +148,12 @@ These different type of RR Lyrae have different ranges of values for properties 
 
 \section{Oosterhoff Dichotomy}
 
-In 1939, Pieter Oosterhoff published a paper on some observations he made about RR Lyrae in various globular clusters in the Milky Way galaxy. Oosterhoff noticed that if you examined the mean periods of the RRab and RRc in globular clusters, the globular clusters appeared to cluster into two groups. He found that M5 and M3 had lower RRab and RRc periods, while M53, M15, and ω Cen had higher RRab and RRc periods. \footnote{Globular clusters are typically referred to either by their NGC identifier (like NGC 5024), an M followed by a number (like M53), or a specific name (like ω Cen). (?) See the appendix ... … … … for a list of globular clusters and their various names.} (Oosterhoff, 1939) These two groups later became known as the Oostherhoff I (OoI) and Oosterhoff II (OoII) groups. (?)
+In 1939, Pieter Oosterhoff published a paper on some observations he made about RR Lyrae in various globular clusters in the Milky Way galaxy. Oosterhoff noticed that if you examined the mean periods of the RRab and RRc in globular clusters, the globular clusters appeared to cluster into two groups. He found that M5 and M3 had lower RRab and RRc periods, while M53, M15, and $\omega$ Cen had higher RRab and RRc periods. \footnote{Globular clusters are typically referred to either by their NGC identifier (like NGC 5024), an M followed by a number (like M53), or a specific name (like ω Cen). (?) See the appendix ... … … … for a list of globular clusters and their various names.} \cite{oosterhoff_1939} These two groups later became known as the Oostherhoff I (OoI) and Oosterhoff II (OoII) groups. (?)
 
 \begin{figure}
 	\centering
 	\includegraphics[width=8cm]{figures/globular_clusters/oosterhoff_1939.png}
-	\caption{A plot of the Milky Way globular clusters examined in Oosterhoff (1939). A gap is visible between the clusters of M5 + M3 and M53 + M15 + $\omega$ Cen.}
+	\caption{A plot of the Milky Way globular clusters examined in Oosterhoff (1939). \cite{oosterhoff_1939} A gap is visible between the clusters of M5 + M3 and M53 + M15 + $\omega$ Cen.}
 	\label{fig:oosterhoff_1939_globular_clusters}
 \end{figure}
 
@@ -179,14 +179,45 @@ However, examinations of globular clusters outside of the Milky Way found some g
 
 \section{Clustering}
 
-Clustering is a process of applying algorithms to data in order to separate a dataset into multiple sub groups, or clusters, that have differing properties. (?) The idea is to partition the data into clusters such that in cluster distance is minimized, or rather the in group similarity should be high. Additionally the intracluster distance should be maximized, or rather the similarity between things in different clusters should be low. (?)
+Clustering is the process of looking for patterns groupings of points or patterns in a dataset, typically though the use of automated clustering algorithms. The idea is to find partitions of the data into clusters such that intercluster distance is minimized, or rather the in group similarity should be high. Additionally the intracluster distance should be maximized, or rather the similarity between things in different clusters should be low. \cite{jain_2010}
 
-By applying clustering algorithms to a dataset, we can learn more about sub-categories that exist in the data. (?) … … …
+By applying clustering algorithms to a dataset, we can learn more about sub-categories that exist in the data. \cite{jain_2010}
 
-The clustering algorithm that I used for the data analysis I performed was K-Means clustering. K-Means clustering is an algorithm that takes a number of clusters to look for (called k) and works by making random initial guesses for the k clusters and gradually refining them until a convergence threshold or iteration limit is reached. (?) … (more on K-Means algorithm)
+\subsection{K-Means Clustering}
 
+The clustering algorithm that I used for the data analysis I performed was K-Means clustering. K-Means clustering is an algorithm that takes as input a number of clusters $k$ to try to partition the data into and works by making initial guesses for the $k$ clusters and gradually refining them until a convergence threshold or iteration limit is reached. \footnote{There are other clustering algorithms that do not require the number of clusters to be specified before running the algorithm, some decide the number of clusters on their own based on the data. I choose K-Means because in the use case I had I was reasonably sure the number of clusters would be 2.} \cite{jain_2010}
 
-… … …
+There are a few different algorithms for K-Means clustering, but one common one is Lloyd’s algorithm. \cite{arthur_2007}
+
+\begin{enumerate}
+	\item Choose $k$ different random data points for the dataset to be the centers, or ``centroids'', of the clusters.
+	\item Until an iteration limit or convergence is reached, repeat the following:
+	\begin{enumerate}
+		\item Assign each point in the dataset to the cluster of the centroid that it is closest to.
+		\item For each cluster:
+		\begin{enumerate}
+			\item Compute a new ``centroid'' for the cluster by calculating the ``center'' of all of the data points in the cluster. \footnote{Note that this calculated new ``centroid'' point is most often not an actual data point in the dataset, but rather an abstract theoretical point.}
+		\end{enumerate}
+		\item Calculate the sum squared distances between each data point and its associated centroid.
+	\end{enumerate}
+\end{enumerate}
+
+This algorithm works to continually reduce the sum of squared distances of the points within each cluster from their associated centroid, defined by the following equation. \cite{arthur_2007}
+
+$$
+\sum_{x \in \chi}^{}\min_{c \in C} || x - c ||^2
+$$
+
+Where $\chi$ is the collection of data points, $C$ is the collection of centroids, and $c$ is the centroid closest to the data point $x$.
+
+\subsection{K-Means Implementation used}
+For the data analysis, I used the implementation of K-Means clustering in the Scikit-learn Python library. \cite{pedregosa_2011} This implementation uses either Lloyd’s algorithm or Elkan’s algorithm depending on whether the input data is dense or sparse. \cite{scikit_learn_kmeans} Since the data I worked with was dense, Scikit-learn used Elkan’s algorithm.
+
+Elkan’s algorithm is an optimized algorithm for K-Means that makes use of the triangle inequality to avoid unnecessary distance calculations. It works by using the triangle inequality to get upper and lower bounds on the distances between points and centroids to avoid calculating the actual distances, as only the closest centroid to each data point needs to found, so calculating the actual distances is not necessary. \cite{elkan_2003}
+
+\subsection{Kernel functions}
+
+\cite{scholkopf_1998, jain_2010}
 
 
 \newpage
@@ -388,26 +419,26 @@ This data was collected by looking through papers related to the Oosterhoff dich
 \paragraph{Sources}
 
 \begin{itemize}
-	\item Braga, 2016 \cite{braga_2016}
-	\item Sollima, 2014 \cite{sollima_2014}
-	\item Jang, 2015 \cite{jang_2015}
-	\item Kuehn, 2013 \cite{kuehn_2013}
-	\item Corwin, 2003 \cite{corwin_2003}
-	\item Székely, 2007 \cite{szekely_2007}
-	\item Di Criscienzo, 2011 \cite{di_criscienzo_2011_a}
-	\item Clementini, 2004 \cite{clementini_2004}
-	\item Clement, 1991 \cite{clement_1991_a}
-	\item Smolec, 2017 \cite{smolec_2017}
-	\item Contreras, 2010 \cite{contreras_2010}
 	\item Arellano Ferro, 2013 \cite{arellano_ferro_2013}
 	\item Arellano Ferro, 2017 \cite{arellano_ferro_2017}
-	\item Jeffery, 2011 \cite{jeffery_2011}
-	\item Stetson, 2014 \cite{stetson_2014}
+	\item Braga, 2016 \cite{braga_2016}
+	\item Clement, 1991 \cite{clement_1991_a}
 	\item Clement, 2001 \cite{clement_2001_a}
+	\item Clementini, 2004 \cite{clementini_2004}
+	\item Contreras, 2010 \cite{contreras_2010}
+	\item Corwin, 2003 \cite{corwin_2003}
+	\item Di Criscienzo, 2011 \cite{di_criscienzo_2011_a}
 	\item Jang, 2014 \cite{jang_2014}
+	\item Jang, 2015 \cite{jang_2015}
+	\item Jeffery, 2011 \cite{jeffery_2011}
+	\item Kinemuchi, 2006 \cite{kinemuchi_2006_a}
+	\item Kuehn, 2013 \cite{kuehn_2013}
 	\item Kunder, 2013 \cite{kunder_2013_d}
 	\item Pritzl, 2000 \cite{pritzl_2000_a}
-	\item Kinemuchi, 2006 \cite{kinemuchi_2006_a}
+	\item Smolec, 2017 \cite{smolec_2017}
+	\item Sollima, 2014 \cite{sollima_2014}
+	\item Stetson, 2014 \cite{stetson_2014}
+	\item Székely, 2007 \cite{szekely_2007}
 \end{itemize}
 
 \newpage
