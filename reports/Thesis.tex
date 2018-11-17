@@ -88,7 +88,11 @@
 
 \section{RR Lyrae}
 
-RR Lyrae are a type of radially pulsating, periodic variable star that are numerous in Local Group galaxies and examined due to their utility as distance indicators and indicators of early stellar composition. \cite{szczygiel_2009, kinemuchi_2006_a} (Szczygiel et al. 2009, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are advanced age stars (> 10 Gyrs) that undergo radial pulsations, whereby they expand and contract radially over time. (Szczygiel et al. 2009, ?) These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which makes them periodic variable stars. (?) RR Lyrae are numerous in the Milky Way and other Local Group galaxies and are additionally easy to identify. (Soszyński, 2016, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are often researched due to their use as “standard candles”, or distance indicators.\cite{soszynski_2016} (Soszyński, 2016) The intensity of the luminosity change caused by the periodic pulsations is correlated with the period of the pulsations, thus the period can be used to calculate the luminosity of the star which can be compared with the observed brightness of the star to determine its distance. (?)
+RR Lyrae are a type of radially pulsating, periodic variable star that are numerous in Local Group galaxies and examined due to their utility as distance indicators and indicators of early stellar composition. \cite{szczygiel_2009, kinemuchi_2006_a}
+
+RR Lyrae are advanced age stars ($>$ 10 Gyrs) that undergo radial pulsations, whereby they expand and contract in radius over time. \cite{szczygiel_2009} (Szczygiel et al. 2009, ?) These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which makes them periodic variable stars. (?, AAVSO)
+
+RR Lyrae are numerous in the Milky Way and other Local Group galaxies and are additionally easy to identify. (Soszyński, 2016, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are often researched due to their use as “standard candles”, or distance indicators. (Soszyński, 2016) The intensity of the luminosity change caused by the periodic pulsations is correlated with the period of the pulsations, thus the period can be used to calculate the luminosity of the star which can be compared with the observed brightness of the star to determine its distance. (?)
 
 \subsection{Light Curves}
 
@@ -175,6 +179,10 @@ However, examinations of globular clusters outside of the Milky Way found some g
 	\label{fig:modern_globular_clusters_location}
 \end{figure}
 
+\subsection{Previous fits and clustering of RRab}
+There has been some previous research that has looked for fit lines and divisions within the RRab stars in globular clusters that relate to the Oosterhoff dichotomy.
+
+
 \newpage
 
 \section{Clustering}
@@ -215,9 +223,19 @@ For the data analysis, I used the implementation of K-Means clustering in the Sc
 
 Elkan’s algorithm is an optimized algorithm for K-Means that makes use of the triangle inequality to avoid unnecessary distance calculations. It works by using the triangle inequality to get upper and lower bounds on the distances between points and centroids to avoid calculating the actual distances, as only the closest centroid to each data point needs to found, so calculating the actual distances is not necessary. \cite{elkan_2003}
 
-\subsection{Kernel functions}
+\subsection{Kernel functions \& Kernel K-Means}
 
-\cite{scholkopf_1998, jain_2010}
+Kernel functions are transformation functions that can be applied in classification and clustering algorithms, such as support vector machines, to allow for easier classification and clustering of nonlinear patterns. Kernel functions are applied to the input data of an algorithm to transform it from the original feature space into a new feature space in which subgroups within the data are more easily separable. \cite{amari_1999} Kernel functions can also be applied to some clustering algorithms like k-means to achieve clusters of arbitrary shapes. \cite{scholkopf_1998, jain_2010}
+
+Regular k-means clustering cannot separate data into clusters that are not linearly separable. One approach for fitting arbitrary shaped clusters is the use of a kernel function within the k-means algorithm. This technique is referred to as kernel k-means clustering. Kernel k-means clustering works the same as regular k-means clustering, however when performing the distance calculations of a data point from a centroid and determining new centroids, the kernel function is applied to the data points to transform them from the input space to another feature space. \cite{dhillon_2004}
+
+Thus kernel k-means works to iteratively minimize the sum of squared distances of the kernel function transformed data points within each cluster from their associated centroid.
+
+$$
+\sum_{x \in \chi}^{}\min_{c \in C} || \phi(x) - c ||^2
+$$
+
+Where $\chi$ is the collection of data points, $C$ is the collection of centroids, $\phi$ is the kernel function, and $c$ is the centroid closest to $\phi(x)$.
 
 
 \newpage
@@ -227,6 +245,10 @@ Elkan’s algorithm is an optimized algorithm for K-Means that makes use of the 
 To learn more about the Oosterhoff dichotomy I wanted to try applying clustering algorithms to the fairly recent OGLE IV dataset to see if I could separate the RRab into two clusters that have properties that correspond to the two main Oosterhoff groups.
 
 \subsection{OGLE IV Dataset}
+
+The Optical Gravitational Lensing Experiment (OGLE) is a long-running photometric survey that has taken CCD observations of the Galactic Bulge and the Small and Large Magellanic Clouds. \cite{udalski_1992, soszynski_2016}
+
+As of the time of writing, the most recent phase of the OGLE survey 
 
 OGLE IV is a dataset that includes data on RR Lyrae present in the Large and Small Magellanic Clouds. (?) The Large and Small Magellanic clouds, also referred to as the LMC and SMC respectively, are two galaxies in the Local Group that orbit the Milky Way galaxy. (?) They are of particular interest because of their proximity to the Milky Way. (?)
 
@@ -288,6 +310,24 @@ With the trend line, I could subtract out the influence line from the data to ge
 
 … … …
 
+\subsection{Analyzing results}
+While I was able to apply clustering to determine lines to separate the RRab in the LMC and SMC into subpopulations that seem to relate to the Oosterhoff dichotomy, I wanted to see if these “boundary lines” have a similar effect when applied to the RRab in various globular clusters.
+
+The idea being that if I could apply the boundary line to globular clusters with known Oosterhoff classifications, the ratio of RRab on each side of the boundary line should be related to the Oosterhoff classification of the globular cluster.
+
+To figure this out, I started looking on VizieR and AdsAbs for data releases of RR Lyrae data from globular clusters. \footnote{The VizieR Catalog is an online database of astronomical catalogues which allows for querying and downloading the data of a number of different data releases. \cite{ochsenbein_2000}} \footnote{The SAO/NASA Astrophysics Data System is a searchable database of papers for fields related to astronomy and astrophysics. \cite{accomazzi_2015}} I recorded each of the relevant data releases that I found into a spreadsheet. I was able to find a total of 41 different data releases.
+
+[add the data table as an appendix]
+
+However, I needed to filter down the data releases to the ones that I would be able to use to evaluate my clustering results. Since I was working with period and I-band amplitude I would only be able to work with data releases that had I-band photometry. Out of the 41 data releases I found, 18 had I-band photometry.
+
+I also wanted to only look at globular clusters that had known and agreed upon Oosterhoff classifications, since otherwise I would not be able to evaluate how the boundary line relates to the globular cluster’s Oosterhoff classification. Out of the 18 remaining data releases, 12 were for globular clusters with agreed upon Oosterhoff classifications.
+
+I also wanted to look at different globular clusters, so in the case of having multiple data releases for the same globular cluster I would only use one of the available data releases. With the 12 remaining data releases, there were 8 different globular clusters with data.
+
+I also wanted to look at globular clusters with differing Oosterhoff classifications to get a good idea of how the boundary line relates to the different Oosterhoff classifications. However, of the 8 globular clusters that I had found data releases for 7 of them were OoII and only one was OoI.
+
+Unfortunately only having one OoI globular cluster would not be enough to get a good idea of how the boundary line that I found relates to the Oosterhoff classifications. So I was unable to do this analysis.
 
 \newpage
 
@@ -624,6 +664,63 @@ This data was collected by looking through papers related to the Oosterhoff dich
 		M3             & NGC 5272     & I          & Kinemuchi, 2006 \cite{kinemuchi_2006_a}      &                                                                        \\
 		Omega Centauri & NGC 5139     & II         & Kinemuchi, 2006      &                                                                       
 \end{longtable}
+
+\newpage
+
+\subsubsection{Globular Cluster Data Releases}
+
+[add description]
+
+[add info on how data was collected and filtered]
+
+Columns
+
+[add columns]
+
+\paragraph{Sources}
+
+\begin{itemize}
+	\item Alves, 2001 \cite{alves_2001}
+	\item Arellano Ferro, 2004 \cite{arellano_ferro_2004}
+	\item Arellano Ferro, 2006 \cite{arellano_ferro_2006}
+	\item Arellano Ferro, 2008 \cite{arellano_ferro_2008}
+	\item Arellano Ferro, 2010 \cite{arellano_ferro_2010}
+	\item Arellano Ferro, 2011 \cite{arellano_ferro_2011}
+	\item Arellano Ferro, 2012 \cite{arellano_ferro_2012}
+	\item Arellano Ferro, 2013 \cite{arellano_ferro_2013}
+	\item Arellano Ferro, 2014 \cite{arellano_ferro_2014}
+	\item Arellano Ferro, 2015 \cite{arellano_ferro_2015}
+	\item Arellano Ferro, 2016 \cite{arellano_ferro_2016}
+	\item Braga, 2016 \cite{braga_2016}
+	\item Brocato, 1994 \cite{brocato_1994}
+	\item Cacciari, 2005 \cite{cacciari_2005}
+	\item Clement, 1991 \cite{clement_1991_b}
+	\item Clement, 1993 \cite{clement_1993}
+	\item Clement, 1996 \cite{clement_1996}
+	\item Clement, 1997 \cite{clement_1997}
+	\item Clement, 1999 \cite{clement_1999}
+	\item Clement, 2000 \cite{clement_2000}
+	\item Contreras, 2010 \cite{contreras_2010}
+	\item Corwin, 2008 \cite{corwin_2008}
+	\item Dekany, 2009 \cite{dekany_2009}
+	\item Di Criscienzo, 2011 \cite{di_criscienzo_2011_b}
+	\item Fernandez-Trincado, 2015 \cite{fernandez-trincado_2015}
+	\item Jurcsik, 2012 \cite{jurcsik_2012}
+	\item Jurcsik, 2015 \cite{jurcsik_2015}
+	\item Jurcsik, 2017 \cite{jurcsik_2017}
+	\item Kains, 2015 \cite{kains_2015}
+	\item Kaluzny, 1997 \cite{kaluzny_1997}
+	\item Montiel, 2010 \cite{montiel_2010}
+	\item Nemec, 1995 \cite{nemec_1995}
+	\item Petersen 1994 \cite{petersen_1994}
+	\item Siegel, 2015 \cite{siegel_2015}
+	\item Silbermann, 1995 \cite{silbermann_1995}
+	\item Sollima, 2006 \cite{sollima_2006}
+	\item Stetson, 2014 \cite{stetson_2014}
+	\item Szeidl, 2011 \cite{szeidl_2011}
+	\item Vivas, 2017 \cite{vivas_2017}
+\end{itemize}
+
 
 \newpage
 
