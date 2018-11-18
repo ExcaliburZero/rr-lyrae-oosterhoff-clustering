@@ -14,7 +14,8 @@ LMC_INTERIM_FILES = \
 	data/interim/lmc/RRd.csv \
 	data/interim/lmc/aRRd.csv \
 	data/interim/lmc/all.csv \
-	data/interim/lmc/curves/
+	data/interim/lmc/curves/ \
+	data/interim/lmc/RRab_extracted.csv
 
 SMC_DATA_FILES = \
 	data/raw/smc/README \
@@ -32,7 +33,8 @@ SMC_INTERIM_FILES = \
 	data/interim/smc/RRd.csv \
 	data/interim/smc/aRRd.csv \
 	data/interim/smc/all.csv \
-	data/interim/smc/curves/
+	data/interim/smc/curves/ \
+	data/interim/smc/RRab_extracted.csv
 
 ANALYSIS = \
 	reports/RRab_OGLE_IV_Clustering.tex \
@@ -82,6 +84,9 @@ data/interim/lmc/RRab.csv data/interim/lmc/RRc.csv data/interim/lmc/RRd.csv data
 data/interim/lmc/curves/: data/raw/lmc/phot/ src/data/lmc/process_light_curves.py
 	python src/data/lmc/process_light_curves.py data/raw/lmc/phot data/interim/lmc/curves
 
+data/interim/lmc/RRab_extracted.csv: src/data/feature_extraction.py data/interim/lmc/RRab.csv data/interim/lmc/curves/
+	python src/data/feature_extraction.py data/interim/lmc/RRab.csv data/interim/lmc/curves/ data/interim/lmc/RRab_extracted.csv
+
 ############
 # SMC Data #
 ############
@@ -90,19 +95,19 @@ data/raw/smc/README:
 	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/smc/rrlyr/README
 
 data/raw/smc/RRab.dat:
-	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/lmc/rrlyr/RRab.dat
+	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/smc/rrlyr/RRab.dat
 
 data/raw/smc/RRc.dat:
-	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/lmc/rrlyr/RRc.dat
+	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/smc/rrlyr/RRc.dat
 
 data/raw/smc/RRd.dat:
-	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/lmc/rrlyr/RRd.dat
+	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/smc/rrlyr/RRd.dat
 
 data/raw/smc/aRRd.dat:
-	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/lmc/rrlyr/aRRd.dat
+	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/smc/rrlyr/aRRd.dat
 
 data/raw/smc/ident.dat:
-	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/lmc/rrlyr/ident.dat
+	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/smc/rrlyr/ident.dat
 
 data/raw/smc/phot.tar.gz:
 	wget -P data/raw/smc ftp://ftp.astrouw.edu.pl/ogle/ogle4/OCVS/smc/rrlyr/phot.tar.gz
@@ -113,11 +118,14 @@ data/raw/smc/phot/: data/raw/smc/phot.tar.gz
 
 data/interim/smc/RRab.csv data/interim/smc/RRc.csv data/interim/smc/RRd.csv data/interim/smc/aRRd.csv data/interim/smc/all.csv: data/raw/smc/RRab.dat data/raw/smc/RRc.dat data/raw/smc/RRd.dat data/raw/smc/aRRd.dat src/data/smc/process_dat_files.py
 	mkdir -p data/interim/smc
-	python src/data/lmc/process_dat_files.py data/raw/smc data/interim/smc
+	python src/data/smc/process_dat_files.py data/raw/smc data/interim/smc
 	touch data/interim/smc
 
 data/interim/smc/curves/: data/raw/smc/phot/ src/data/smc/process_light_curves.py
 	python src/data/smc/process_light_curves.py data/raw/smc/phot data/interim/smc/curves
+
+data/interim/smc/RRab_extracted.csv: src/data/feature_extraction.py data/interim/smc/RRab.csv data/interim/smc/curves/
+	python src/data/feature_extraction.py data/interim/smc/RRab.csv data/interim/smc/curves/ data/interim/smc/RRab_extracted.csv
 
 ############
 # Analysis #

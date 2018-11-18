@@ -30,7 +30,7 @@ def main():
 
     combine_dat_files(output_dir, "RRab", "RRc", "RRd", "aRRd")
 
-def dat_to_csv(dat, columns):
+def dat_to_csv(input_dir, output_dir, dat, columns):
     data_file = os.path.join(input_dir, dat + ".dat")
     output_file = os.path.join(output_dir, dat + ".csv")
 
@@ -55,7 +55,7 @@ def remove_empty_cells(dat):
 
     subprocess.call(command, shell=True)
 
-def combine_dat_files(rrab, rrc, rrd, arrd):
+def combine_dat_files(directory, rrab, rrc, rrd, arrd):
     rrab_dat = pd.read_csv(os.path.join(directory, rrab + ".csv"))
     rrc_dat = pd.read_csv(os.path.join(directory, rrc + ".csv"))
     rrd_dat = pd.read_csv(os.path.join(directory, rrd + ".csv"))
