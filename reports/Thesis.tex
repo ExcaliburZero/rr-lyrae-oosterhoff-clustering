@@ -124,9 +124,33 @@ This “period folded light curve” makes it easier to see the pattern of varia
 
 \subsection{Properties \& Sub-Types}
 
-RR Lyrae are characterized mainly through a few different properties, both physical and those observed through their light curves. (?) One of the most commonly examined properties of RR Lyrae is their period, that is the time interval at which they repeat their pulsations and variance in brightness. (?) RR Lyrae typically have periods of 0.2 to 1.2 days. (Szczygiel et al. 2009) Another commonly examined property is amplitude, or the amount of change that the brightness of the star undergoes as a part of its regular pattern. (?) RR Lyrae typically have amplitudes of 0.2 to 1.6 mag in V photometric band light. (Szczygiel et al. 2009)
+RR Lyrae are characterized mainly through a few different properties, both physical and properties of their light curves that develop as a result of physical properties. (?) One of the most commonly examined properties of RR Lyrae is their period, which is the time interval at which they repeat their pulsations and variance in brightness. (?) RR Lyrae typically have periods of 0.2 to 1.2 days. (Szczygiel et al. 2009) For example if an RR Lyrae with a period of 0.58 days reached its peak brightness, at 0.58 days later it would again be at its peak brightness.
 
-… … … (metalicity, etc… ?)
+[how is period calculated?]
+
+Another commonly examined property is amplitude, or the amount of change that the brightness of the star undergoes as a part of its regular pattern. (?) RR Lyrae typically have amplitudes of 0.2 to 1.6 mag in V-band photometric band light. (Szczygiel et al. 2009) Amplitude is typically calculated by taking the difference between the maximum and minimum measured brightness of the star in magnitudes. (?)
+
+[how is amplitude calculated?]
+
+Another commonly examined property is metallicity, also referred to as [Fe/H], or the ratio of iron to hydrogen in the star. (?) While metallicity can be measured through spectroscopy, for dealing with metallicity for large formations containing RRab estimation forumas are typically used. (?) Some of the metallicity estimation formulas used are from Jurcsik and Kovacs (1996), Sandage (2004), Smolec (2005), and Nemec et al. (2013). (...) \cite{jurcsik_1996, sandage_2004, smolec_2005, nemec_2013} For example, the following formula from Jurcsik and Kovacs (1996) estimates the metallicity of an RRab using its period and $\phi_{31}$. \cite{jurcsik_1996}
+
+$$
+[Fe/H] = -5.038 - 5.394 P + 1.345 \phi_{31}
+$$
+
+Where $P$ is the period and $\phi_{31}$ is defined as follows.
+
+$$
+\phi_{31} = 
+$$
+
+Where the $\phi_{n}$ values are the $n$th $\phi$ coefficient of the following fourier fit.
+
+$$
+A_{0} + \sum_{k=1}^{m} A_k * cos(2\pi * k * time + \phi_{k})
+$$
+
+[metalicity \& estimation formulas]
 
 [plot of RR Lyrae light curve with period and amplitude annotated]
 
@@ -315,9 +339,7 @@ While I was able to apply clustering to determine lines to separate the RRab in 
 
 The idea being that if I could apply the boundary line to globular clusters with known Oosterhoff classifications, the ratio of RRab on each side of the boundary line should be related to the Oosterhoff classification of the globular cluster.
 
-To figure this out, I started looking on VizieR and AdsAbs for data releases of RR Lyrae data from globular clusters. \footnote{The VizieR Catalog is an online database of astronomical catalogues which allows for querying and downloading the data of a number of different data releases. \cite{ochsenbein_2000}} \footnote{The SAO/NASA Astrophysics Data System is a searchable database of papers for fields related to astronomy and astrophysics. \cite{accomazzi_2015}} I recorded each of the relevant data releases that I found into a spreadsheet. I was able to find a total of 41 different data releases.
-
-[add the data table as an appendix]
+To figure this out, I started looking on VizieR and AdsAbs for data releases of RR Lyrae data from globular clusters. \footnote{The VizieR Catalog is an online database of astronomical catalogues which allows for querying and downloading the data of a number of different data releases. \cite{ochsenbein_2000}} \footnote{The SAO/NASA Astrophysics Data System is a searchable database of papers for fields related to astronomy and astrophysics. \cite{accomazzi_2015}} I recorded each of the relevant data releases that I found into a spreadsheet. I was able to find a total of 41 different data releases. (See section \ref{sec:app_data_releases} \nameref{sec:app_data_releases})
 
 However, I needed to filter down the data releases to the ones that I would be able to use to evaluate my clustering results. Since I was working with period and I-band amplitude I would only be able to work with data releases that had I-band photometry. Out of the 41 data releases I found, 18 had I-band photometry.
 
@@ -668,10 +690,13 @@ This data was collected by looking through papers related to the Oosterhoff dich
 \newpage
 
 \subsubsection{Globular Cluster Data Releases}
+\label{sec:app_data_releases}
 
 [add description]
 
 [add info on how data was collected and filtered]
+
+[add link]
 
 Columns
 
@@ -719,8 +744,8 @@ Columns
 	\item Stetson, 2014 \cite{stetson_2014}
 	\item Szeidl, 2011 \cite{szeidl_2011}
 	\item Vivas, 2017 \cite{vivas_2017}
+	\item Sources for Oosterhoff classifications are listed in section~\ref{sec:app_oosterhoff_classifications}~\nameref{sec:app_oosterhoff_classifications}.
 \end{itemize}
-
 
 \newpage
 
