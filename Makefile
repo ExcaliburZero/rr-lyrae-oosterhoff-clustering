@@ -15,7 +15,8 @@ LMC_INTERIM_FILES = \
 	data/interim/lmc/aRRd.csv \
 	data/interim/lmc/all.csv \
 	data/interim/lmc/curves/ \
-	data/interim/lmc/RRab_extracted.csv
+	data/interim/lmc/RRab_extracted.csv \
+	data/interim/lmc/RRab_clustered.csv
 
 SMC_DATA_FILES = \
 	data/raw/smc/README \
@@ -34,7 +35,8 @@ SMC_INTERIM_FILES = \
 	data/interim/smc/aRRd.csv \
 	data/interim/smc/all.csv \
 	data/interim/smc/curves/ \
-	data/interim/smc/RRab_extracted.csv
+	data/interim/smc/RRab_extracted.csv \
+	data/interim/smc/RRab_clustered.csv
 
 ANALYSIS = \
 	reports/RRab_OGLE_IV_Clustering.tex \
@@ -131,7 +133,7 @@ data/interim/smc/RRab_extracted.csv: src/data/feature_extraction.py data/interim
 # Analysis #
 ############
 
-reports/RRab_OGLE_IV_Clustering.tex reports/RRab_OGLE_IV_Clustering_files/: notebooks/RRab_OGLE_IV_Clustering.ipynb data/interim/lmc/RRab.csv data/interim/smc/RRab.csv
+reports/RRab_OGLE_IV_Clustering.tex reports/RRab_OGLE_IV_Clustering_files/ data/interim/lmc/RRab_clustered.csv data/interim/smc/RRab_clustered.csv: notebooks/RRab_OGLE_IV_Clustering.ipynb data/interim/lmc/RRab_extracted.csv data/interim/smc/RRab_extracted.csv
 	jupyter nbconvert --output-dir="./reports" --execute --to latex notebooks/RRab_OGLE_IV_Clustering.ipynb
 
 data/processed/light_curve_observation_stats.txt: src/tools/light_curve_observation_stats.py data/interim/lmc/curves/ data/interim/smc/curves/
