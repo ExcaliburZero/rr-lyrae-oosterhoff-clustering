@@ -143,3 +143,7 @@ data/processed/light_curve_observation_stats.txt: src/tools/light_curve_observat
 data/processed/type_statistics.csv: src/tools/rr_lyrae_type_statistics.py data/interim/lmc/RRab.csv data/interim/lmc/RRc.csv data/interim/lmc/RRd.csv data/interim/lmc/aRRd.csv data/interim/smc/RRab.csv data/interim/smc/RRc.csv data/interim/smc/RRd.csv data/interim/smc/aRRd.csv
 	cd src/tools &&\
 		python rr_lyrae_type_statistics.py
+
+reports/figures/globular_clusters/lmc_clusters_with_globular_clusters.png reports/figures/globular_clusters/smc_clusters_with_globular_clusters.png: data/raw/gc_oosterhoff/Collected\ Globular\ Cluster\ Information\ -\ Globular\ Clusters\ Summary.csv data/interim/lmc/RRab_clustered.csv data/interim/smc/RRab_clustered.csv
+	cd src/visualization &&\
+		Rscript plot_magellanic_clouds_with_gcs.R
