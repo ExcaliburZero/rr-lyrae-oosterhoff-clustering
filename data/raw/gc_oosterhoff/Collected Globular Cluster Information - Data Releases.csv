@@ -1,0 +1,41 @@
+Name,NGC,Oost Type,Bands,Paper,Link
+,NGC 2419,II,VI,"Di Criscienzo, 2011",http://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/AJ/141/81
+,NGC 3201,Conflicted,VI,"Arellano Ferro, 2014","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/other/RMxAA/50.307&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+,NGC 4147,I,VR,"Arellano Ferro, 2004","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/other/RMxAA/40.209&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M68,NGC 4590,II,B,"Clement, 1993",http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/ApJ/412/183
+M68,NGC 4590,II,VI,"Kains, 2015",http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/A+A/578/A128
+M68,NGC 4590,II,BV,"Brocato, 1994","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/107/622&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M53,NGC 5024,II,V,"Arellano Ferro, 2012",http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/MNRAS/420/1333
+M53,NGC 5024,II,VI,"Dekany, 2009","http://vizier.u-strasbg.fr/viz-bin/VizieR-3?-source=J/A%2bA/507/803&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M53,NGC 5024,II,V,"Arellano Ferro, 2011","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/MNRAS/416/2265&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+,NGC 5053,II,VRI,"Arellano Ferro, 2010",http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J%2FMNRAS%2F402%2F226
+,NGC 5053,II,BV,"Nemec, 1995","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/109/618&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+Omega Centauri,NGC 5139,II,V,"Clement, 2000",http://simbad.harvard.edu/simbad/sim-ref?querymethod=bib&simbo=on&submit=submit+bibcode&bibcode=2000AJ....120.2579C
+Omega Centauri,NGC 5139,II,UBVRI,"Braga, 2016","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/152/170&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+Omega Centauri,NGC 5139,II,V,"Kaluzny, 1997","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/A%2bAS/125/343&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+Omega Centauri,NGC 5139,II,VI,"Fernandez-Trincado, 2015","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/A%2bA/574/A15&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+Omega Centauri,NGC 5139,II,V,"Sollima, 2006","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/ApJ/640/L43&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+Omega Centauri,NGC 5139,II,,Petersen 1994,"http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/A%2bAS/105/145&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M3,NGC 5272,I,BVI,"Jurcsik, 2017",http://simbad.harvard.edu/simbad/sim-ref?querymethod=bib&simbo=on&submit=submit+bibcode&bibcode=2017MNRAS.468.1317J
+M3,NGC 5272,I,BVI,"Jurcsik, 2015","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/ApJS/219/25&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M3,NGC 5272,I,(UVM2),"Siegel, 2015",http://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/AJ/150/129
+M3,NGC 5272,I,BVI,"Cacciari, 2005","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/129/267&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M3,NGC 5272,I,V,"Jurcsik, 2012","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/MNRAS/419/2173&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+,NGC 5466,II,Vr,"Arellano Ferro, 2008","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/MNRAS/384/1444&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M5,NGC 5904,Conflicted,BV,"Szeidl, 2011",http://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/MNRAS/411/1744
+M5,NGC 5904,Conflicted,VI,"Arellano Ferro, 2016",http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/other/ApSS/361.175
+M5,NGC 5904,Conflicted,VI,"Arellano Ferro, 2015",http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J%2Fother%2FIBVS%2F6137
+M5,NGC 5904,Conflicted,UGRIZ,"Vivas, 2017","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/154/85&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+,NGC 5986,II,BV,"Alves, 2001","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/121/318&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M4,NGC 6121,Conflicted,UBVRIJHK,"Stetson, 2014",http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/PASP/126/521
+M107,NGC 6171,I,V,"Clement, 1997","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/113/1711&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M62,NGC 6266,I,BV,"Contreras, 2010",http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/140/1766
+M9,NGC 6333,II,VI,"Arellano Ferro, 2013","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/MNRAS/434/1220&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M9,NGC 6333,II,V,"Clement, 1999","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/118/453&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M9,NGC 6333,II,B,"Clement, 1996","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/112/618&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M9,NGC 6333,II,B,"Clement, 1991","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/101/1352&-out.max=200&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M54,NGC 6715,Conflicted,VI,"Montiel, 2010","http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/140/1500&-out.max=50&-out.form=HTML%20Table&-out.add=_r&-out.add=_RAJ,_DEJ&-sort=_r&-oc.form=sexa"
+M15,NGC 7078,II,(UVM2),"Siegel, 2015",http://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/AJ/150/129
+M15,NGC 7078,II,BVI,"Corwin, 2008",http://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/AJ/135/1459
+M15,NGC 7078,II,BVRI,"Silbermann, 1995",http://vizier.cfa.harvard.edu/viz-bin/VizieR-3?-source=J/AJ/110/704
+M15,NGC 7078,II,RV,"Arellano Ferro, 2006",http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J%2Fother%2FRMxAA%2F42.75
