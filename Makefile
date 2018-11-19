@@ -156,14 +156,17 @@ reports/figures/light_curve_examples/: src/visualization/plot_light_curve_exampl
 		python plot_light_curve_examples.py
 
 reports/figures/globular_clusters/oosterhoff_1939.png: src/visualization/plot_oosterhoff_1939.py data/raw/gc_oosterhoff/Oosterhoff_1939.csv
+	mkdir -p reports/figures/globular_clusters/
 	cd src/visualization &&\
 		python plot_oosterhoff_1939.py
 
 reports/figures/globular_clusters/globular_clusters_by_oosterhoff_type.png reports/figures/globular_clusters/globular_clusters_by_location.png: src/visualization/plot_globular_clusters.R data/raw/gc_oosterhoff/Collected\ Globular\ Cluster\ Information\ -\ Globular\ Clusters\ Summary.csv
+	mkdir -p reports/figures/globular_clusters/
 	cd src/visualization &&\
 		Rscript plot_globular_clusters.R
 
 reports/figures/globular_clusters/lmc_clusters_with_globular_clusters.png reports/figures/globular_clusters/smc_clusters_with_globular_clusters.png: src/visualization/plot_magellanic_clouds_with_gcs.R data/raw/gc_oosterhoff/Collected\ Globular\ Cluster\ Information\ -\ Globular\ Clusters\ Summary.csv data/interim/lmc/RRab_clustered.csv data/interim/smc/RRab_clustered.csv
+	mkdir -p reports/figures/globular_clusters/
 	cd src/visualization &&\
 		Rscript plot_magellanic_clouds_with_gcs.R
 
