@@ -39,10 +39,15 @@ SMC_INTERIM_FILES = \
 	data/interim/smc/RRab_clustered.csv
 
 ANALYSIS = \
-	reports/RRab_OGLE_IV_Clustering.tex \
+	reports/RRab_OGLE_IV_Clustering.pdf \
 	reports/RRab_OGLE_IV_Clustering_files/ \
 	data/processed/light_curve_observation_stats.txt \
-	data/processed/type_statistics.csv
+	data/processed/type_statistics.csv \
+	reports/figures/globular_clusters/globular_clusters_by_oosterhoff_type.png \
+	reports/figures/globular_clusters/globular_clusters_by_location.png \
+	reports/figures/globular_clusters/lmc_clusters_with_globular_clusters.png \
+	reports/figures/globular_clusters/smc_clusters_with_globular_clusters.png \
+	reports/Thesis.pdf
 
 .PHONY: all
 
@@ -133,8 +138,8 @@ data/interim/smc/RRab_extracted.csv: src/data/feature_extraction.py data/interim
 # Analysis #
 ############
 
-reports/RRab_OGLE_IV_Clustering.tex reports/RRab_OGLE_IV_Clustering_files/ data/interim/lmc/RRab_clustered.csv data/interim/smc/RRab_clustered.csv: notebooks/RRab_OGLE_IV_Clustering.ipynb data/interim/lmc/RRab_extracted.csv data/interim/smc/RRab_extracted.csv
-	jupyter nbconvert --output-dir="./reports" --execute --to latex notebooks/RRab_OGLE_IV_Clustering.ipynb
+reports/RRab_OGLE_IV_Clustering.pdf reports/RRab_OGLE_IV_Clustering_files/ data/interim/lmc/RRab_clustered.csv data/interim/smc/RRab_clustered.csv: notebooks/RRab_OGLE_IV_Clustering.ipynb data/interim/lmc/RRab_extracted.csv data/interim/smc/RRab_extracted.csv
+	jupyter nbconvert --output-dir="./reports" --execute --to pdf notebooks/RRab_OGLE_IV_Clustering.ipynb
 
 data/processed/light_curve_observation_stats.txt: src/tools/light_curve_observation_stats.py data/interim/lmc/curves/ data/interim/smc/curves/
 	cd src/tools &&\
@@ -144,6 +149,25 @@ data/processed/type_statistics.csv: src/tools/rr_lyrae_type_statistics.py data/i
 	cd src/tools &&\
 		python rr_lyrae_type_statistics.py
 
-reports/figures/globular_clusters/lmc_clusters_with_globular_clusters.png reports/figures/globular_clusters/smc_clusters_with_globular_clusters.png: data/raw/gc_oosterhoff/Collected\ Globular\ Cluster\ Information\ -\ Globular\ Clusters\ Summary.csv data/interim/lmc/RRab_clustered.csv data/interim/smc/RRab_clustered.csv
+reports/figures/light_curve_examples/: src/visualization/plot_light_curve_examples.py data/interim/lmc/curves/
+	cd src/visualization &&\
+		python plot_light_curve_examples.py
+
+reports/figures/globular_clusters/oosterhoff_1939.png: src/visualization/plot_oosterhoff_1939.py data/raw/gc_oosterhoff/Oosterhoff_1939.csv
+	cd src/visualization &&\
+		python plot_oosterhoff_1939.py
+
+reports/figures/globular_clusters/globular_clusters_by_oosterhoff_type.png reports/figures/globular_clusters/globular_clusters_by_location.png: src/visualization/plot_globular_clusters.R data/raw/gc_oosterhoff/Collected\ Globular\ Cluster\ Information\ -\ Globular\ Clusters\ Summary.csv
+	cd src/visualization &&\
+		Rscript plot_globular_clusters.R
+
+reports/figures/globular_clusters/lmc_clusters_with_globular_clusters.png reports/figures/globular_clusters/smc_clusters_with_globular_clusters.png: src/visualization/plot_magellanic_clouds_with_gcs.R data/raw/gc_oosterhoff/Collected\ Globular\ Cluster\ Information\ -\ Globular\ Clusters\ Summary.csv data/interim/lmc/RRab_clustered.csv data/interim/smc/RRab_clustered.csv
 	cd src/visualization &&\
 		Rscript plot_magellanic_clouds_with_gcs.R
+
+reports/Thesis.pdf: reports/Thesis.tex reports/RRab_OGLE_IV_Clustering.pdf reports/figures/light_curve_examples/ reports/figures/globular_clusters/oosterhoff_1939.png reports/figures/globular_clusters/globular_clusters_by_oosterhoff_type.png reports/figures/globular_clusters/globular_clusters_by_location.png reports/figures/globular_clusters/lmc_clusters_with_globular_clusters.png reports/figures/globular_clusters/smc_clusters_with_globular_clusters.png
+	cd reports &&\
+		pdflatex Thesis.tex &&\
+		bibtex Thesis &&\
+		pdflatex Thesis.tex &&\
+		pdflatex Thesis.tex

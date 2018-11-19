@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 
 def main():
-    i_input_dir = "../../data/raw/lmc/curves/I"
-    v_input_dir = "../../data/raw/lmc/curves/V"
+    i_input_dir = "../../data/interim/lmc/curves/I"
+    v_input_dir = "../../data/interim/lmc/curves/V"
 
     output_dir = "../../reports/figures/light_curve_examples"
     os.makedirs(output_dir, exist_ok=True)
