@@ -11,6 +11,7 @@
 \usepackage{longtable}
 \usepackage{pdflscape}
 \usepackage{listings}
+\usepackage{amsmath}
 
 \usepackage[final]{pdfpages}
 
@@ -141,22 +142,18 @@ $$
 Where $P$ is the period and $\phi_{31}$ is defined as follows.
 
 $$
-\phi_{31} = 
+\phi_{31} = \phi_{3} - 3\phi_{1}
 $$
 
 Where the $\phi_{n}$ values are the $n$th $\phi$ coefficient of the following fourier fit.
 
 $$
-A_{0} + \sum_{k=1}^{m} A_k * cos(2\pi * k * time + \phi_{k})
+magnitude = A_{0} + \sum_{k=1}^{m} A_k * sin(2\pi * k * time + \phi_{k})
 $$
-
-[metalicity \& estimation formulas]
 
 [plot of RR Lyrae light curve with period and amplitude annotated]
 
-There are several different sub-types of RR Lyrae that tend to have different characteristics due to the mode(s) that they pulsate in. (Chen, 2013) RR Lyrae that pulsate in the fundamental mode are known as RRab. RR Lyrae that pulsate in the first overtone mode are known as as RRc. RR Lyrae that pulsate in both the fundamental and first overtone modes are known as RRd. \footnote{This letter-based naming convention came from ...} \footnote{An additional sub-type of RR Lyrae called RRe, which had second overtone mode pulsations, was thought to exist. However, the existence of RRe has been debated in the literature. (Chen, 2013) For the OGLE IV data release, OGLE has stopped classifying stars as RRe, choosing to group in all stars previously classified as RRe to be RRc, so as to not separate the first and second overtone pulsators. They noted that they did this “because of the doubts whether the RRe stars exist at all”. (Soszyński, 2016)} \footnote{An alternate naming scheme using numbers is sometimes used. In this scheme RRab are called RR0, RRc are called RR1, RRd are called RR01, and RRe are called RR2. This system was introduced in Alcock et al. (2000) in order to allow for easier mnemonic memorization of the different types, with the 0 indicating fundamental mode, 1 indicating first overtone mode, and 2 indicating second overtone mode. (Chen, 2013) I have decided to use the letter-based naming convention instead due to OGLE’s use of it and since it seem to be the more popular naming scheme in the literature.} (Chen, 2013)
-
-These different type of RR Lyrae have different ranges of values for properties like period and amplitude. …. …. ….
+There are several different sub-types of RR Lyrae that tend to have different characteristics due to the mode(s) that they pulsate in. (Chen, 2013) RR Lyrae that pulsate in the fundamental mode are known as RRab. RR Lyrae that pulsate in the first overtone mode are known as as RRc. RR Lyrae that pulsate in both the fundamental and first overtone modes are known as RRd. \footnote{This letter-based naming convention came from ...} \footnote{An additional sub-type of RR Lyrae called RRe, which had second overtone mode pulsations, was thought to exist. However, the existence of RRe has been debated in the literature. (Chen, 2013) For the OGLE IV data release, OGLE has stopped classifying stars as RRe, choosing to group in all stars previously classified as RRe to be RRc, so as to not separate the first and second overtone pulsators. They noted that they did this “because of the doubts whether the RRe stars exist at all”. (Soszyński, 2016)} \footnote{An alternate naming scheme using numbers is sometimes used. In this scheme RRab are called RR0, RRc are called RR1, RRd are called RR01, and RRe are called RR2. This system was introduced in Alcock et al. (2000) in order to allow for easier mnemonic memorization of the different types, with the 0 indicating fundamental mode, 1 indicating first overtone mode, and 2 indicating second overtone mode. (Chen, 2013) I have decided to use the letter-based naming convention instead due to OGLE’s use of it and since it seem to be the more popular naming scheme in the literature.} (Chen, 2013) Additionally, these different type of RR Lyrae have different ranges of values for their properties like period and amplitude.
 
 
 \begin{center}
@@ -205,6 +202,30 @@ However, examinations of globular clusters outside of the Milky Way found some g
 
 \subsection{Previous fits and clustering of RRab}
 There has been some previous research that has looked for fit lines and divisions within the RRab stars in globular clusters that relate to the Oosterhoff dichotomy.
+
+
+In 2005, Cacciari et al. used BVI banded RRab data from the OoI globular cluster M3 to fit a quadratic relation between log period and B-band amplitude. \cite{cacciari_2005}
+
+$$
+A_{B} = -3.123 - 26.331~log(P) - 35.853~log(P^{2})
+$$
+
+In 2009, Szczygie{\l} et al. used V-band RRab data from the ASAS survey to develop fit a piecewise linear function and a linear for Oosterhoff I and II subgroups, respectively, based on log period and V-band amplitude. They also determine a linear function to separate the Oosterhoff I and II groups. \cite{szczygiel_2009}
+
+$$
+(OoI)~Amp_{v} =
+\begin{cases} 
+	-8.844 * log(P) - 1.343 & Amp_{v} < 1.2 \\
+	-1.654 * log(P) + 0.719 & Amp_{v} \geq 1.2 \\
+\end{cases}
+$$
+
+$$
+(OoII)~Amp_{v} = -7.007 * log(P) - 0.343
+$$
+$$
+(Separation)~Amp_{v} = -8.0 * log(P) - 0.85
+$$
 
 
 \newpage
@@ -301,17 +322,18 @@ The OGLE IV dataset contains light curves for the RR Lyrae in both I and V photo
 	\captionof{table}{OGLE IV Light Curve Observation Count Summaries}
 \end{center}
 
+\subsection{Data Selection}
+To try to apply clustering algorithms to the OGLE IV dataset to try to find a partitioning of the data related to the Oosterhoff dichotomy I first needed to decide what data in the dataset to work with.
+
+I wanted to come up with a method that would work for both of the Magellanic clouds, so I needed to work with the data for both.
+
+The dataset contains data on several different sub-types of RR Lyrae, so I needed to decide which types to work with. Clustering with all of the different sub-types at once would not work, since they have very different values for period and pulsations in different modes. Since RRab have been looked at in previous literature and are the most numerous in the dataset, I worked with just the RRab stars in the dataset.
+
+The dataset also contains not only the light curves of the RR Lyrae, but also some pre-calculated parameters of the stars. Since previous literature has looked at period and amplitude, I decided to look at these parameters as well. However, since the I-band data for the OGLE IV dataset is less sparsely sampled than the V-band data I worked with the I-band amplitude, unlike most previous literature which looked mainly at V-band and B-band amplitudes.
+
+So I had decided to look at the data for the LMC and SMC in turn, for each looking at the period and I-band amplitude for only the RRab stars.
+
 \subsection{Applying Clustering}
-When I was analyzing the data from the OGLE IV dataset I focused on the RRab in particular. This was in part due to the dataset having a larger number of RRab light curves than RRc or RRd. (?)
-
-In working with the OGLE IV data, there were a few parameters of RRab that I was looking at in particular.
-
-…
-…
-...
-
-I wanted to find a way to separate the RRab population in a way that transfers beyond a particular one of Magellanic clouds
-
 …
 …
 …
@@ -332,7 +354,23 @@ With the trend line, I could subtract out the influence line from the data to ge
 
 [add image]
 
-… … …
+... ... ...
+
+\begin{figure}
+	\centering
+	\includegraphics[width=17cm]{figures/globular_clusters/lmc_clusters_with_globular_clusters.png}
+	\caption{
+	}
+	\label{fig:lmc_clustering_with_gcs}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=17cm]{figures/globular_clusters/smc_clusters_with_globular_clusters.png}
+	\caption{
+	}
+	\label{fig:smc_clustering_with_gcs}
+\end{figure}
 
 \subsection{Analyzing results}
 While I was able to apply clustering to determine lines to separate the RRab in the LMC and SMC into subpopulations that seem to relate to the Oosterhoff dichotomy, I wanted to see if these “boundary lines” have a similar effect when applied to the RRab in various globular clusters.
@@ -692,15 +730,35 @@ This data was collected by looking through papers related to the Oosterhoff dich
 \subsubsection{Globular Cluster Data Releases}
 \label{sec:app_data_releases}
 
-[add description]
+This table contains information on various data releases on globular cluster RR Lyrae data. This data was intended to be used to be used to evaluate the clustering of the LMC and SMC data in terms of its relationship to the Oosterhoff dichotomy.
 
-[add info on how data was collected and filtered]
+\vspace{12pt}
 
-[add link]
+This data was collected by looking for data releases on the VizieR Catalog and the SAO/NASA Astrophysics Data System (ADS) using search terms like “RR Lyrae”. The data releases were filtered down to data releases that fit the following criteria.
 
-Columns
+\begin{itemize}
+	\item Included RR Lyrae data for a specific globular cluster.
+	\item The globular cluster that the data release was for fit the criteria specified in section \ref{sec:app_globular_clusters_summary} \nameref{sec:app_globular_clusters_summary}.
+\end{itemize}
 
-[add columns]
+\textbf{Link:} \url{https://github.com/ExcaliburZero/rr-lyrae-oosterhoff-clustering/blob/master/data/raw/gc_oosterhoff/Collected\%20Globular\%20Cluster\%20Information\%20-\%20Data\%20Releases.csv}
+
+\paragraph{Columns}
+
+\begin{outline}
+	\1 Name
+	\2 The non-NGC name of the globular cluster. (if any) (ex. M3, M5, M72)
+	\1 NGC
+	\2 The NGC designation of the globular cluster, or the globular cluster’s name if an NGC designation could not be found. (ex. NGC 5272, NGC 5904, NGC 6121)
+	\1 Oost Type
+	\2 The Oosterhoff type that the paper suggests that the globular cluster is. (I, II, III, Oo-Int, Oo-Neutral)
+	\1 Bands
+	\2 The photometric bands that the data release contains.
+	\1 Paper
+	\2 The paper associated with the data release.
+	\1 Link
+	\2 A link to the data release.
+\end{outline}
 
 \paragraph{Sources}
 
@@ -773,14 +831,38 @@ The data analysis scripts depend on the following software, so to re-run the ana
 	\item Pyenv		-	\url{https://github.com/pyenv/pyenv}
 \end{itemize}
 
+The data analysis scripts are written in a combination of Python and R. Most of the scripts that do that actual analysis are written in Python, and some of the plotting scripts are written in R.
+
+\vspace{12pt}
+
+The dependencies for the Python scripts are all handled by Pipenv, but the following R libraries are needed for the R scripts.
+
+\begin{itemize}
+	\item ggplot2
+	\item repr
+	\item ggrepel
+	\item plyr
+\end{itemize}
+
+These libraries can be installed by running the following.
+
+\begin{lstlisting}
+$ R
+> install.packages("ggplot2")
+> install.packages("repr")
+> install.packages("ggrepel")
+> install.packages("plyr")
+\end{lstlisting}
+
+
 Once you have these dependencies installed, you can download and run the analysis scripts by running the following terminal commands.
 
 \vspace{12pt}
 
 \begin{lstlisting}[language=bash]
-git clone https://github.com/ExcaliburZero/rr-lyrae-oosterhoff-clustering
-pipenv install
-make
+$ git clone https://github.com/ExcaliburZero/rr-lyrae-oosterhoff-clustering
+$ pipenv install
+$ make
 \end{lstlisting}
 
 \newpage
