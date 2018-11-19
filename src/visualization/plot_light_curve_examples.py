@@ -25,7 +25,7 @@ def main():
     ]
 
     # Get the period to use for the period folded light curves
-    rrab_data_file = "../../data/raw/lmc/RRab.csv"
+    rrab_data_file = "../../data/interim/lmc/RRab.csv"
     rrab = pd.read_csv(rrab_data_file)
 
     period = rrab[rrab["id"] == data_id]["period"].iloc[0]
