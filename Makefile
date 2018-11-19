@@ -142,10 +142,12 @@ reports/RRab_OGLE_IV_Clustering.pdf reports/RRab_OGLE_IV_Clustering_files/ data/
 	jupyter nbconvert --output-dir="./reports" --execute --to pdf notebooks/RRab_OGLE_IV_Clustering.ipynb
 
 data/processed/light_curve_observation_stats.txt: src/tools/light_curve_observation_stats.py data/interim/lmc/curves/ data/interim/smc/curves/
+	mkdir -p data/processed
 	cd src/tools &&\
 		python light_curve_observation_stats.py > ../../data/processed/light_curve_observation_stats.txt
 
 data/processed/type_statistics.csv: src/tools/rr_lyrae_type_statistics.py data/interim/lmc/RRab.csv data/interim/lmc/RRc.csv data/interim/lmc/RRd.csv data/interim/lmc/aRRd.csv data/interim/smc/RRab.csv data/interim/smc/RRc.csv data/interim/smc/RRd.csv data/interim/smc/aRRd.csv
+	mkdir -p data/processed
 	cd src/tools &&\
 		python rr_lyrae_type_statistics.py
 
