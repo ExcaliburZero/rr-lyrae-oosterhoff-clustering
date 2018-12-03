@@ -361,29 +361,25 @@ After transforming the data to the trend subtracted space, I started applying K-
 
 I then was able to examine the values in the trend subtracted space at which the K-Means clustering separated the ``lower'' cluster from the ``upper'' clusters. Then by using the kernel function to map this linear boundary line back to the period, I-band amplitude space I was able to get a 3rd degree polynomial for separating the two groups in period and I-band amplitude.
 
+For a full breakdown of the code used in the analysis, the intermediate plots of the data, and the equations for the fitted boundary lines see Section \ref{sec:data-analysis} \nameref{sec:data-analysis}.
+
+Then using these boundary lines for the SMC and LMC I was able to take the mean RRab period and metalicity (estimated using the Jursik \& Kovacs formula) of the two subpopulations for each of the two Magellanic clouds. These summary data points seemed to line up with the Oosterhoff I and II group globular clusters examined in the literature. (See Figures \ref{fig:lmc_clustering_with_gcs} and \ref{fig:smc_clustering_with_gcs})
+
 [add image of trend subtracted space]
 
 [add image of the final clusters]
 
-...
-...
-...
-
-... ... ...
-
 \begin{figure}
 	\centering
 	\includegraphics[width=17cm]{figures/globular_clusters/lmc_clusters_with_globular_clusters.png}
-	\caption{
-	}
+	\caption{The position of the mean values of the two clusters in the LMC data, plotted against globular clusters to show their relation to the Oosterhoff classifications.}
 	\label{fig:lmc_clustering_with_gcs}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=17cm]{figures/globular_clusters/smc_clusters_with_globular_clusters.png}
-	\caption{
-	}
+	\caption{The position of the mean values of the two clusters in the SMC data, plotted against globular clusters to show their relation to the Oosterhoff classifications.}
 	\label{fig:smc_clustering_with_gcs}
 \end{figure}
 
@@ -893,7 +889,7 @@ pages=-,
 pagecommand={},  
 %% Add a "section" entry to the ToC with the heading
 %% "Quilling Shapes" and the label "sec:shapes"
-addtotoc={1,subsection,1,Data Analysis Jupyter Notebook,sec:shapes}]
+addtotoc={1,subsection,1,Data Analysis Jupyter Notebook,sec:data-analysis}]
 %% The pdf file itself
 {RRab_OGLE_IV_Clustering.pdf}
 
