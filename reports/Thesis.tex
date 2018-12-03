@@ -62,6 +62,14 @@
 \begin{abstract}
 	
 	RR Lyrae are a type of periodic variable star that are often examined due to their utility as distance indicators in space. An effect known as the Oosterhoff Dichotomy has been seen in populations of RR Lyrae stars in globular clusters in the Milky Way Galaxy. This phenomenon is thought to have some importance in learning more about the formation of the Milky Way Galaxy.
+	
+	\vspace{12pt}
+	
+	Previous attempts have been made to divide or fit relations to the Fundamental-mode RR Lyrae populations in globular clusters in relation to the Oosterhoff I and II classifications of Milky Way globular clusters. However, these previous attempts have often been with small datasets, or have not explained how they obtained the fits or divisions they found.
+	
+	\vspace{12pt}
+	
+	In this thesis, I examine data from the fourth data release of the Optical Gravitational Lensing Experiment (OGLE IV) on RR Lyrae in the Small and Large Magellanic Clouds. Using this dataset of 17,235 RRab in the LMC and 5,105 RRab in the SMC I apply kernel k-means clustering to attempt to find a partitioning of the RRab in period and amplitude that relates to the Oosterhoff dichotomy.
 
 \end{abstract}
 
@@ -210,23 +218,28 @@ $$
 A_{B} = -3.123 - 26.331~log(P) - 35.853~log(P^{2})
 $$
 
-In 2009, Szczygie{\l} et al. used V-band RRab data from the ASAS survey to develop fit a piecewise linear function and a linear for Oosterhoff I and II subgroups, respectively, based on log period and V-band amplitude. They also determine a linear function to separate the Oosterhoff I and II groups. \cite{szczygiel_2009}
+In 2009, Szczygie{\l} et al. used V-band RRab data from the ASAS survey to fit a piecewise linear function and a linear for Oosterhoff I and II subgroups, respectively, based on log period and V-band amplitude. They also determine a linear function to separate the Oosterhoff I and II groups. \cite{szczygiel_2009}
 
 $$
-(OoI)~Amp_{v} =
+(OoI)~A_{v} =
 \begin{cases} 
-	-8.844 * log(P) - 1.343 & Amp_{v} < 1.2 \\
-	-1.654 * log(P) + 0.719 & Amp_{v} \geq 1.2 \\
+	-8.844 * log(P) - 1.343 & A_{v} < 1.2 \\
+	-1.654 * log(P) + 0.719 & A_{v} \geq 1.2 \\
 \end{cases}
 $$
 
 $$
-(OoII)~Amp_{v} = -7.007 * log(P) - 0.343
+(OoII)~A_{v} = -7.007 * log(P) - 0.343
 $$
 $$
-(Separation)~Amp_{v} = -8.0 * log(P) - 0.85
+(Separation)~A_{v} = -8.0 * log(P) - 0.85
 $$
 
+In 2013, Kunder et al. ........... data from ............ to fit a linear division of ``OoI-type'' RRab and ``OoII-type'' RRab based on period and V-band amplitude. For this division, the OoI-type RRab fall above the following line, and the Oo-I-type RRab fall below it. \cite{kunder_2013_d}
+
+$$
+A_{v} = -5.1453~P + 4.02
+$$
 
 \newpage
 
@@ -295,7 +308,7 @@ The Optical Gravitational Lensing Experiment (OGLE) is a long-running photometri
 
 OGLE IV is a dataset that includes data on RR Lyrae present in the Large and Small Magellanic Clouds. (?) The Large and Small Magellanic clouds, also referred to as the LMC and SMC respectively, are two galaxies in the Local Group that orbit the Milky Way galaxy. (?) They are of particular interest because of their proximity to the Milky Way. (?)
 
-The OGLE IV dataset contains data on a total of 45,451 RR Lyrae, 39,082 in the LMC and 6,369 in the SMC. \cite{soszynski_2016}
+The OGLE IV dataset contains data on a total of 45,451 RR Lyrae, 39,082 in the LMC and 6,369 in the SMC. With 17,235 RRab in the LMC and 5,105 RRab in the SMC. \cite{soszynski_2016}
 
 The OGLE IV dataset contains light curves for the RR Lyrae in both I and V photometric bands. The I band light curves are highly sampled over time, while the V band light curves are more sparse. \cite{soszynski_2016}
 
@@ -332,25 +345,29 @@ The dataset also contains not only the light curves of the RR Lyrae, but also so
 So I had decided to look at the data for the LMC and SMC in turn, for each looking at the period and I-band amplitude for only the RRab stars.
 
 \subsection{Applying Clustering}
-…
-…
-…
+[add plot of the data, showing density]
 
-Initially I looked into a few different clustering techniques to see if any of them would be good to try on the data. I tried using K-Means clustering and Spectral Clustering, but neither of these techniques achieved the separation I was looking for.
+Looking at the data, I noticed that there looked like there were two subpopulations that seemed to follow a trend in period and I-band amplitude. Additionally the two groups seemed to be mostly separable by a boundary that follows a similar shape to the overall trend in the data. So I figured that it would be best to try using a clustering technique that would fit clusters based on a boundary with such a shape.
 
-Looking more closely at the data, I noticed that the groups seemed to follow a trend in period and I band amplitude. Additionally the two groups seemed to be separated by a boundary that follows a similar shape to the trend in the data. So I figured that it would be best to try using a clustering technique that would fit clusters based on a boundary with such a shape.
+Many clustering techniques like K-Means clustering tend to fit ``blob-like'' clusters, so I figured that using such a technique on its own would not be the best approach due to the apparent shape of the groups having a ``non-blob'' shape. So I decided to try taking an approach using a kernel function, where I would pre-transform the data points into a feature space where clustering algorithms would be able to more easily fit a boundary line of a particular shape.
 
-Many clustering techniques like K-Means clustering tend to fit “blob-like” clusters, so I figured that using such a technique on its own would not be the best approach due to the apparent shape of the groups having a “non-blob” shape.
+In order to determine the transformation to apply to the data before using the clustering algorithm, I fit a polynomial trend line to the data. At first I tried fitting the trend line to all of the RRab in a given cluster, but the resulting trend line seemed off.
 
-So I decided to try taking an approach similar to how a kernel function is used, where I would pre-transform the data points into a feature space where clustering algorithms would be able to more easily fit a boundary line of a particular shape.
+In order to get a better fit of the trend of the data I filtered it down to ignore some of the more outlying points, by using a Gaussian kernel density estimate to find what regions of the period, I-band amplitude space were more densely populated. I then applied a density threshold to look at the RRab data points in the denser region of the space. I then applied a least squares fit of a 3rd degree polynomial to fit the trend of the data.
 
-In order to determine the transformation to apply to the data before using the clustering algorithm, I fit a polynomial trend line to the data. In order to do this, I fit the trendline to only the more densely populated regions, as the more sparse regions caused odd behavior in the trend line.
+With this trend line I could then construct a kernel function to apply to the data. The kernel function would take a point in the period, I-band amplitude space and map it to a 1 dimensional point by taking the  difference between the actual I-band amplitude value and the amplitude value predicted by the trend for the point's period value. In this 1 dimensional, trend subtracted, space the two subgroups are closer to being linearly separable.
 
-… … …
+After transforming the data to the trend subtracted space, I started applying K-Means clustering. Initially I used a $k$ value of 2, since there appeared to be two subpopulations, however some of the more outlying points, perhaps caused by the trend line having odd behavior at its ends, seemed to throw off the clustering. So instead I tried apply K-Means clustering with 3 clusters and this resulted in one cluster that seemed to fit the subpopulation that had lower period and amplitude values and two clusters that together seemed to fit the subpopulation that had higher period and amplitude values.
 
-With the trend line, I could subtract out the influence line from the data to get a 1 dimensional space, where a boundary value would separate out the original data in a line with the shape of the fitted trend line. Then I was able to apply K-Means clustering to the data to achieve the following clusters.
+I then was able to examine the values in the trend subtracted space at which the K-Means clustering separated the ``lower'' cluster from the ``upper'' clusters. Then by using the kernel function to map this linear boundary line back to the period, I-band amplitude space I was able to get a 3rd degree polynomial for separating the two groups in period and I-band amplitude.
 
-[add image]
+[add image of trend subtracted space]
+
+[add image of the final clusters]
+
+...
+...
+...
 
 ... ... ...
 
