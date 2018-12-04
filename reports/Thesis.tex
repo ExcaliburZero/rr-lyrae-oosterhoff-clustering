@@ -69,7 +69,7 @@
 	
 	\vspace{12pt}
 	
-	In this thesis, I examine data from the fourth data release of the Optical Gravitational Lensing Experiment (OGLE IV) on RR Lyrae in the Small and Large Magellanic Clouds. Using this dataset of 17,235 RRab in the LMC and 5,105 RRab in the SMC I apply kernel k-means clustering to attempt to find a partitioning of the RRab in period and amplitude that relates to the Oosterhoff dichotomy.
+	In this thesis, I examine data from the fourth data release of the Optical Gravitational Lensing Experiment (OGLE IV) survey on RR Lyrae in the Small and Large Magellanic Clouds. Using this dataset of 17,235 RRab in the LMC and 5,105 RRab in the SMC I apply kernel k-means clustering to attempt to find a partitioning of the RRab in period and amplitude that relates to the Oosterhoff dichotomy.
 
 \end{abstract}
 
@@ -99,15 +99,15 @@
 
 RR Lyrae are a type of radially pulsating, periodic variable star that are numerous in Local Group galaxies and examined due to their utility as distance indicators and indicators of early stellar composition. \cite{szczygiel_2009, kinemuchi_2006_a}
 
-RR Lyrae are advanced age stars ($>$ 10 Gyrs) that undergo radial pulsations, whereby they expand and contract in radius over time due to instabilities caused by radiation and gravity. \cite{szczygiel_2009, templeton_2010} These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which makes them periodic variable stars. \cite{AAVSO_nodate}
+RR Lyrae are advanced age stars ($>$ 10 Gyrs) that undergo radial pulsations, whereby they expand and contract in radius over time due to instabilities caused by radiation and gravity. \cite{szczygiel_2009, templeton_2010} These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as being variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which classifies them as being periodic variable stars. \cite{AAVSO_nodate}
 
 RR Lyrae are numerous in the Milky Way and other Local Group galaxies and are additionally easy to identify. \cite{soszynski_2016, kinemuchi_2006} RR Lyrae are often researched due to their use as ``standard candles'' (distance indicators). \cite{soszynski_2016} The intensity of the luminosity change caused by the periodic pulsations is related with the period of the pulsations, thus the period can be used to calculate the luminosity of the star which can be compared with the observed brightness of the star to determine its distance. \cite{templeton_2010}
 
 \subsection{Light Curves}
 
-When examining variable stars, such as RR Lyrae, we often are working with data on the brightness of the variable star over a given period of time. Sky surveys that gather data on variable stars take photometric brightness measurements of many different variable stars at various different points in time. These brightness measurements over time for a particular variable star are called a light curve. (?)
+When examining variable stars, such as RR Lyrae, we often are working with data on the brightness of the variable star over a given period of time. Sky surveys that gather data on variable stars take photometric brightness measurements of many different variable stars at various different points in time. These brightness measurements over time for a particular variable star are called a light curve. \cite{AAVSO_nodate}
 
-By examining the light curve of a variable star we can get an idea of the type of brightness variation that the variable star is undergoing. Different types of variable stars tend to have different characteristic patterns of brightness variation. (?)
+By examining the light curve of a variable star we can get an idea of the type of brightness variation that the variable star is undergoing. Different types of variable stars tend to have different characteristic patterns of brightness variation. \cite{sokolovsky_2017}
 
 Light curves are typically plotted as a scatter plot where the x-axis is the time of the observation in Modified Julian Date (MJD) and the y-axis is the brightness of the star in magnitude. \cite{AAVSO_nodate}
 
@@ -135,13 +135,13 @@ This ``period folded light curve'' makes it easier to see the pattern of variati
 
 RR Lyrae are characterized mainly through a few different properties, both physical and properties of their light curves that develop as a result of physical properties. (?) One of the most commonly examined properties of RR Lyrae is their period, which is the time interval at which they repeat their pulsations and variance in brightness. (?) RR Lyrae typically have periods of 0.2 to 1.2 days. \cite{szczygiel_2009} For example if an RR Lyrae with a period of 0.58 days reached its peak brightness, at 0.58 days later it would again be at its peak brightness.
 
-[how is period calculated?]
+Another commonly examined property is amplitude, or the amount of change that the brightness of the star undergoes as a part of its regular pattern. (?) RR Lyrae typically have amplitudes of 0.2 to 1.6 mag in V-band photometric band light. \cite{szczygiel_2009} Amplitude is typically calculated by taking the difference between the maximum and minimum measured brightness of the star in magnitudes. \cite{richards_2011}
 
-Another commonly examined property is amplitude, or the amount of change that the brightness of the star undergoes as a part of its regular pattern. (?) RR Lyrae typically have amplitudes of 0.2 to 1.6 mag in V-band photometric band light. \cite{szczygiel_2009} Amplitude is typically calculated by taking the difference between the maximum and minimum measured brightness of the star in magnitudes. (?)
+$$
+Amplitude = m_{max} - m_{min}
+$$
 
-[how is amplitude calculated?]
-
-Another commonly examined property is metallicity, also referred to as [Fe/H], or the ratio of iron to hydrogen in the star. (?) While metallicity can be measured through spectroscopy, for dealing with metallicity for large formations containing RRab estimation forumas are typically used. (?) Some of the metallicity estimation formulas used are from Jurcsik and Kovacs (1996), Sandage (2004), Smolec (2005), and Nemec et al. (2013). \cite{jurcsik_1996, sandage_2004, smolec_2005, nemec_2013} For example, the following formula from Jurcsik and Kovacs (1996) estimates the metallicity of an RRab using its period and $\phi_{31}$. \cite{jurcsik_1996}
+Another commonly examined property is metallicity, also referred to as [Fe/H], or the ratio of iron to hydrogen in the star. \cite{jurcsik_1995} While metallicity can be measured through spectroscopy, for dealing with metallicity for large formations containing RRab estimation formulas are typically used. Some of the metallicity estimation formulas used are from Jurcsik and Kovacs (1996), Sandage (2004), Smolec (2005), and Nemec et al. (2013). \cite{jurcsik_1996, sandage_2004, smolec_2005, nemec_2013} For example, the following formula from Jurcsik and Kovacs (1996) estimates the metallicity of an RRab using its period and $\phi_{31}$. \cite{jurcsik_1996}
 
 $$
 [Fe/H] = -5.038 - 5.394 P + 1.345 \phi_{31}
