@@ -99,9 +99,9 @@
 
 RR Lyrae are a type of radially pulsating, periodic variable star that are numerous in Local Group galaxies and examined due to their utility as distance indicators and indicators of early stellar composition. \cite{szczygiel_2009, kinemuchi_2006_a}
 
-RR Lyrae are advanced age stars ($>$ 10 Gyrs) that undergo radial pulsations, whereby they expand and contract in radius over time. \cite{szczygiel_2009} (Szczygiel et al. 2009, ?) These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which makes them periodic variable stars. (?, AAVSO)
+RR Lyrae are advanced age stars ($>$ 10 Gyrs) that undergo radial pulsations, whereby they expand and contract in radius over time. \cite{szczygiel_2009} These pulsations that RR Lyrae undergo cause the brightness of the star to change over time, with it becoming brighter as it expands and dimmer as it contracts. (?) This change in brightness over time classifies RR Lyrae as variable stars, however unlike some variable stars, RR Lyrae change in brightness at a regular interval, or period, which makes them periodic variable stars. (?, AAVSO)
 
-RR Lyrae are numerous in the Milky Way and other Local Group galaxies and are additionally easy to identify. (Soszyński, 2016, Kinemuchi et al. 2006 (Analysis of ...)) RR Lyrae are often researched due to their use as “standard candles”, or distance indicators. (Soszyński, 2016) The intensity of the luminosity change caused by the periodic pulsations is correlated with the period of the pulsations, thus the period can be used to calculate the luminosity of the star which can be compared with the observed brightness of the star to determine its distance. (?)
+RR Lyrae are numerous in the Milky Way and other Local Group galaxies and are additionally easy to identify. \cite{soszynski_2016, kinemuchi_2006} RR Lyrae are often researched due to their use as ``standard candles'' (distance indicators). \cite{soszynski_2016} The intensity of the luminosity change caused by the periodic pulsations is correlated with the period of the pulsations, thus the period can be used to calculate the luminosity of the star which can be compared with the observed brightness of the star to determine its distance. (?)
 
 \subsection{Light Curves}
 
@@ -109,11 +109,11 @@ When examining variable stars, such as RR Lyrae, we often are working with data 
 
 By examining the light curve of a variable star we can get an idea of the type of brightness variation that the variable star is undergoing. Different types of variable stars tend to have different characteristic patterns of brightness variation. (?)
 
-Light curves are typically plotted as a scatter plot where the x-axis is the time of the observation in Mean Julian Days (MJD) and the y-axis is the brightness of the star in magnitude. (?)
+Light curves are typically plotted as a scatter plot where the x-axis is the time of the observation in Modified Julian Date (MJD) and the y-axis is the brightness of the star in magnitude. \cite{AAVSO_nodate}
 
-In the case of periodic variable stars, like RR Lyrae, a transformation called period folding is often applied to the light curve to look specifically at the periodic variation that the star undergoes. To period fold a light curve, the time for each brightness measurement is “folded” over the period of the star by taking the remainder of the division of the time by the period to get the “phase” of the observation. \footnote{For non-periodic variable stars, period folding of the light curve is not possible, since the star does not have a variation period to fold the observations over. (?)} (?)
+In the case of periodic variable stars, like RR Lyrae, a transformation called period folding is often applied to the light curve to look specifically at the periodic variation that the star undergoes. To period fold a light curve, the time for each brightness measurement is ``folded'' over the period of the star by taking the remainder of the division of the time by the period to get the “phase” of the observation. \footnote{For non-periodic variable stars, period folding of the light curve is not possible, since the star does not have a variation period to fold the observations over.} \cite{AAVSO_nodate}
 
-This “period folded light curve” makes it easier to see the pattern of variation that a periodic variable star undergoes, since some periodic variable stars undergo variations that have a higher frequency than the frequency at which the survey observes them. For such periodic variable stars it is difficult to see the variation pattern as each instance of the pattern may have only a few observations. However, when the light curve is period folded, the different instances of the variation pattern line up over one another, making the repeated pattern more apparent. So the low sampling of each instance of the pattern is countered by the high sampling of all of the instances of the pattern as a whole.
+This ``period folded light curve'' makes it easier to see the pattern of variation that a periodic variable star undergoes, since some periodic variable stars undergo variations that have a higher frequency than the frequency at which the survey observes them. For such periodic variable stars it is difficult to see the variation pattern as each instance of the pattern may have only a few observations. However, when the light curve is period folded, the different instances of the variation pattern line up over one another, making the repeated pattern more apparent. So the low sampling of each instance of the pattern is countered by the high sampling of all of the instances of the pattern as a whole.
 
 \begin{figure}
 	\centering
@@ -147,7 +147,7 @@ $$
 [Fe/H] = -5.038 - 5.394 P + 1.345 \phi_{31}
 $$
 
-Where $P$ is the period and $\phi_{31}$ is defined as follows.
+Where $P$ is the period and $\phi_{31}$ is defined as follows. \cite{bhardwaj_2018}
 
 $$
 \phi_{31} = \phi_{3} - 3\phi_{1}
@@ -159,9 +159,7 @@ $$
 magnitude = A_{0} + \sum_{k=1}^{m} A_k * sin(2\pi * k * time + \phi_{k})
 $$
 
-[plot of RR Lyrae light curve with period and amplitude annotated]
-
-There are several different sub-types of RR Lyrae that tend to have different characteristics due to the mode(s) that they pulsate in. (Chen, 2013) RR Lyrae that pulsate in the fundamental mode are known as RRab. RR Lyrae that pulsate in the first overtone mode are known as as RRc. RR Lyrae that pulsate in both the fundamental and first overtone modes are known as RRd. \footnote{This letter-based naming convention came from ...} \footnote{An additional sub-type of RR Lyrae called RRe, which had second overtone mode pulsations, was thought to exist. However, the existence of RRe has been debated in the literature. (Chen, 2013) For the OGLE IV data release, OGLE has stopped classifying stars as RRe, choosing to group in all stars previously classified as RRe to be RRc, so as to not separate the first and second overtone pulsators. They noted that they did this “because of the doubts whether the RRe stars exist at all”. (Soszyński, 2016)} \footnote{An alternate naming scheme using numbers is sometimes used. In this scheme RRab are called RR0, RRc are called RR1, RRd are called RR01, and RRe are called RR2. This system was introduced in Alcock et al. (2000) in order to allow for easier mnemonic memorization of the different types, with the 0 indicating fundamental mode, 1 indicating first overtone mode, and 2 indicating second overtone mode. (Chen, 2013) I have decided to use the letter-based naming convention instead due to OGLE’s use of it and since it seem to be the more popular naming scheme in the literature.} (Chen, 2013) Additionally, these different type of RR Lyrae have different ranges of values for their properties like period and amplitude.
+There are several different sub-types of RR Lyrae that tend to have different characteristics due to the mode(s) that they pulsate in. (Chen, 2013) RR Lyrae that pulsate in the fundamental mode are known as RRab. RR Lyrae that pulsate in the first overtone mode are known as as RRc. RR Lyrae that pulsate in both the fundamental and first overtone modes are known as RRd. \footnote{An additional sub-type of RR Lyrae called RRe, which had second overtone mode pulsations, was thought to exist. However, the existence of RRe has been debated in the literature. (Chen, 2013) For the OGLE IV data release, OGLE has stopped classifying stars as RRe, choosing to group in all stars previously classified as RRe to be RRc, so as to not separate the first and second overtone pulsators. They noted that they did this ``because of the doubts whether the RRe stars exist at all''. (Soszyński, 2016)} \footnote{An alternate naming scheme using numbers is sometimes used. In this scheme RRab are called RR0, RRc are called RR1, RRd are called RR01, and RRe are called RR2. This system was introduced in Alcock et al. (2000) in order to allow for easier mnemonic memorization of the different types, with the 0 indicating fundamental mode, 1 indicating first overtone mode, and 2 indicating second overtone mode. (Chen, 2013) I have decided to use the letter-based naming convention instead due to OGLE’s use of it and since it seem to be the more popular naming scheme in the literature.} (Chen, 2013) Additionally, these different type of RR Lyrae have different ranges of values for their properties like period and amplitude.
 
 
 \begin{center}
@@ -235,7 +233,7 @@ $$
 (Separation)~A_{v} = -8.0 * log(P) - 0.85
 $$
 
-In 2013, Kunder et al. ........... data from ............ to fit a linear division of ``OoI-type'' RRab and ``OoII-type'' RRab based on period and V-band amplitude. For this division, the OoI-type RRab fall above the following line, and the Oo-I-type RRab fall below it. \cite{kunder_2013_d}
+In 2013, Kunder et al. provide a linear division of ``OoI-type'' RRab and ``OoII-type'' RRab based on period and V-band amplitude. For this division, the OoI-type RRab fall above the following line, and the Oo-I-type RRab fall below it. \cite{kunder_2013_d}
 
 $$
 A_{v} = -5.1453~P + 4.02
@@ -363,7 +361,7 @@ I then was able to examine the values in the trend subtracted space at which the
 
 For a full breakdown of the code used in the analysis, the intermediate plots of the data, and the equations for the fitted boundary lines see Section \ref{sec:data-analysis} \nameref{sec:data-analysis}.
 
-Then using these boundary lines for the SMC and LMC I was able to take the mean RRab period and metalicity (estimated using the Jursik \& Kovacs formula) of the two subpopulations for each of the two Magellanic clouds. These summary data points seemed to line up with the Oosterhoff I and II group globular clusters examined in the literature. (See Figures \ref{fig:lmc_clustering_with_gcs} and \ref{fig:smc_clustering_with_gcs})
+Then using these boundary lines for the SMC and LMC I was able to take the mean RRab period and metalicity (estimated using the Jurcsik and Kovacs formula) of the two subpopulations for each of the two Magellanic clouds. These summary data points seemed to line up with the Oosterhoff I and II group globular clusters examined in the literature. (See Figures \ref{fig:lmc_clustering_with_gcs} and \ref{fig:smc_clustering_with_gcs})
 
 [add image of trend subtracted space]
 
