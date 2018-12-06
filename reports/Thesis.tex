@@ -179,18 +179,18 @@ There are several different sub-types of RR Lyrae that tend to have different ch
 
 \section{Oosterhoff Dichotomy}
 
-In 1939, Pieter Oosterhoff published a paper on some observations he made about RR Lyrae in various globular clusters in the Milky Way galaxy. Oosterhoff noticed that if you examined the mean periods of the RRab and RRc in globular clusters, the globular clusters appeared to cluster into two groups. He found that M5 and M3 had lower RRab and RRc periods, while M53, M15, and $\omega$ Cen had higher RRab and RRc periods. \footnote{Globular clusters are typically referred to either by their NGC identifier (like NGC 5024), an M followed by a number (like M53), or a specific name (like ω Cen). (?) See the appendix ... … … … for a list of globular clusters and their various names.} \cite{oosterhoff_1939} These two groups later became known as the Oostherhoff I (OoI) and Oosterhoff II (OoII) groups. (?)
+In 1939, Pieter Oosterhoff published a paper on some observations he made about RR Lyrae in various globular clusters in the Milky Way galaxy. Oosterhoff noticed that if you examined the mean periods of the RRab and RRc in globular clusters, the globular clusters appeared to cluster into two groups. He found that M5 and M3 had lower RRab and RRc periods, while M53, M15, and $\omega$ Cen had higher RRab and RRc periods. \footnote{Globular clusters are typically referred to either by their NGC identifier (like NGC 5024), an M followed by a number (like M53), or a specific name (like $\omega$ Cen). (?) See the section \ref{sec:app_globular_clusters_summary} \nameref{sec:app_globular_clusters_summary} for a list of several globular clusters in the Milky Way galaxy and their various names and identifiers.} \cite{oosterhoff_1939} These two groups became known as the Oostherhoff I (OoI) and Oosterhoff II (OoII) groups. \cite{cacciari_2005}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=8cm]{figures/globular_clusters/oosterhoff_1939.png}
+	\includegraphics[width=10cm]{figures/globular_clusters/oosterhoff_1939.png}
 	\caption{A plot of the Milky Way globular clusters examined in Oosterhoff (1939). \cite{oosterhoff_1939} A gap is visible between the clusters of M5 + M3 and M53 + M15 + $\omega$ Cen.}
 	\label{fig:oosterhoff_1939_globular_clusters}
 \end{figure}
 
 While Oosterhoff originally examined globular clusters in terms of the mean and median RRab and RRc periods, research since has looked at other parameters as well in terms of the Oosterhoff dichotomy. (?) ...
 
-However, examinations of globular clusters outside of the Milky Way found some globular clusters that exist in between these two groups, in the Oosterhoff gap. (?) Globular clusters that fell in between the Oosterhoff I and Oosterhoff II groups became known as Oosterhoff intermediate (Oo-Int) globular clusters. (?)
+However, examinations of globular clusters outside of the Milky Way found some globular clusters that exist in between these two groups, in the Oosterhoff gap. \cite{szczygiel_2009, joo_2018} Globular clusters that fell in between the Oosterhoff I and Oosterhoff II groups became known as Oosterhoff intermediate (Oo-Int) globular clusters. (?)
 
 \begin{figure}
 	\centering
@@ -298,13 +298,13 @@ Where $\chi$ is the collection of data points, $C$ is the collection of centroid
 
 \section{Data Analysis}
 
-To learn more about the Oosterhoff dichotomy I wanted to try applying clustering algorithms to the fairly recent OGLE IV dataset to see if I could separate the RRab into two clusters that have properties that correspond to the two main Oosterhoff groups.
+%To learn more about the Oosterhoff dichotomy I wanted to try applying clustering algorithms to the fairly recent OGLE IV dataset to see if I could separate the RRab into two clusters that have properties that correspond to the two main Oosterhoff groups.
 
 \subsection{OGLE IV Dataset}
 
 The Optical Gravitational Lensing Experiment (OGLE) is a long-running photometric survey that has taken CCD observations of the Galactic Bulge and the Small and Large Magellanic Clouds. \cite{udalski_1992, soszynski_2016} As of the time of writing, the most recent phase of the OGLE survey that data has been released for is the fourth phase (OGLE IV). \cite{soszynski_2016}
 
-OGLE IV is a dataset that includes data on RR Lyrae present in the Large and Small Magellanic Clouds. (?) The Large and Small Magellanic clouds, also referred to as the LMC and SMC respectively, are two galaxies in the Local Group that orbit the Milky Way galaxy. (?) They are of particular interest because of their proximity to the Milky Way. (?)
+OGLE IV is a dataset that includes data on RR Lyrae present in the Large and Small Magellanic Clouds. The Large and Small Magellanic clouds, also referred to as the LMC and SMC respectively, are two galaxies in the Local Group that are close the Milky Way galaxy. \cite{harvard_2007}
 
 The OGLE IV dataset contains data on a total of 45,451 RR Lyrae, 39,082 in the LMC and 6,369 in the SMC. With 17,235 RRab in the LMC and 5,105 RRab in the SMC. \cite{soszynski_2016}
 
@@ -343,8 +343,6 @@ The dataset also contains not only the light curves of the RR Lyrae, but also so
 So I had decided to look at the data for the LMC and SMC in turn, for each looking at the period and I-band amplitude for only the RRab stars.
 
 \subsection{Applying Clustering}
-[add plot of the data, showing density]
-
 Looking at the data, I noticed that there looked like there were two subpopulations that seemed to follow a trend in period and I-band amplitude. Additionally the two groups seemed to be mostly separable by a boundary that follows a similar shape to the overall trend in the data. So I figured that it would be best to try using a clustering technique that would fit clusters based on a boundary with such a shape.
 
 Many clustering techniques like K-Means clustering tend to fit ``blob-like'' clusters, so I figured that using such a technique on its own would not be the best approach due to the apparent shape of the groups having a ``non-blob'' shape. So I decided to try taking an approach using a kernel function, where I would pre-transform the data points into a feature space where clustering algorithms would be able to more easily fit a boundary line of a particular shape.
