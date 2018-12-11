@@ -61,7 +61,7 @@
 
 \begin{abstract}
 	
-	RR Lyrae are a type of periodic variable star that are often examined due to their utility as distance indicators in space. An effect known as the Oosterhoff Dichotomy has been seen in populations of RR Lyrae stars in globular clusters in the Milky Way Galaxy. This phenomenon is thought to have some importance in learning more about the formation of the Milky Way Galaxy.
+	RR Lyrae are a type of periodic variable star that are often examined due to their utility as distance indicators in space. An effect known as the Oosterhoff Dichotomy has been seen in populations of RR Lyrae stars in globular clusters in the Milky Way Galaxy. This phenomenon has been argued to suggest that the Milky Way halo was not formed as a result of the accretion of protogalactic fragments as the dwarf spheroidal satellite galaxies of the Milky Way were formed.
 	
 	\vspace{12pt}
 	
@@ -188,7 +188,7 @@ While Oosterhoff originally examined globular clusters in terms of the mean and 
 
 However, examinations of globular clusters outside of the Milky Way found some globular clusters, such as those in the dwarf spheroidal satellite galaxies of the Milky way, that exist in between these two groups in the ``Oosterhoff gap''. \cite{szczygiel_2009, catelan_2009, cusano_2016, joo_2018} Globular clusters that fell in between the Oosterhoff I and Oosterhoff II groups became known as Oosterhoff intermediate (Oo-Int) globular clusters.
 
-The Oosterhoff dichotomy is believed to be related to the formation of the Milky Way halo. \cite{jang_2015} In particular, it has been argued that the presence of the Oostherhoff dichotomy in Milky Way globular clusters suggests that the Milky Way halo was not formed by the accretion of ``protogalactic fragments'' like how the dwarf spheroidal satellite galaxies of the Milky Way were formed. \cite{catelan_2009}
+The Oosterhoff dichotomy is believed to be related to the formation of the Milky Way halo. \cite{jang_2015} In particular, it has been argued that the presence of the Oostherhoff dichotomy in Milky Way globular clusters suggests that the Milky Way halo was not formed by the accretion of ``protogalactic fragments'' as the dwarf spheroidal satellite galaxies of the Milky Way were formed. \cite{catelan_2009}
 
 \begin{figure}
 	\centering
@@ -343,13 +343,13 @@ Looking at the data, I noticed that there looked like there were two subpopulati
 
 Many clustering techniques like K-Means clustering tend to fit ``blob-like'' clusters, so I figured that using such a technique on its own would not be the best approach due to the apparent shape of the groups having a ``non-blob'' shape. So I decided to try taking an approach using a kernel function, where I would pre-transform the data points into a feature space where clustering algorithms would be able to more easily fit a boundary line of a particular shape.
 
-In order to determine the transformation to apply to the data before using the clustering algorithm, I fit a polynomial trend line to the data. At first I tried fitting the trend line to all of the RRab in a given cluster, but the resulting trend line seemed off.
+In order to determine the transformation to apply to the data before using the clustering algorithm, I fit a polynomial trend line to the data. At first I tried fitting the trend line to all of the RRab in a given cluster, but the resulting trend line did not capture the characteristics of the data that I was trying to capture.
 
-In order to get a better fit of the trend of the data I filtered it down to ignore some of the more outlying points, by using a Gaussian kernel density estimate to find what regions of the period, I-band amplitude space were more densely populated. I then applied a density threshold to look at the RRab data points in the denser region of the space. I then applied a least squares fit of a 3rd degree polynomial to fit the trend of the data.
+In order to get a better fit for the trend of the data I filtered it down to ignore some of the more outlying points, by using a Gaussian kernel density estimate to find what regions of the period, I-band amplitude space were more densely populated. I then applied a density threshold to look at the RRab data points in the denser region of the space. I then applied a least squares fit of a 3rd degree polynomial to fit the trend of the data.
 
 With this trend line I could then construct a kernel function to apply to the data. The kernel function would take a point in the period, I-band amplitude space and map it to a 1 dimensional point by taking the  difference between the actual I-band amplitude value and the amplitude value predicted by the trend for the point's period value. In this 1 dimensional, trend subtracted, space the two subgroups are closer to being linearly separable.
 
-After transforming the data to the trend subtracted space, I started applying K-Means clustering. Initially I used a $k$ value of 2, since there appeared to be two subpopulations, however some of the more outlying points, perhaps caused by the trend line having odd behavior at its ends, seemed to throw off the clustering. So instead I tried apply K-Means clustering with 3 clusters and this resulted in one cluster that seemed to fit the subpopulation that had lower period and amplitude values and two clusters that together seemed to fit the subpopulation that had higher period and amplitude values.
+After transforming the data to the trend subtracted space, I started applying K-Means clustering. Initially I used a $k$ value of 2, since there appeared to be two subpopulations, however some of the more outlying points, perhaps caused by the trend line having odd behavior at its ends, seemed to throw off the clustering. So instead I tried to apply K-Means clustering with 3 clusters and this resulted in one cluster that seemed to fit the subpopulation that had lower period and amplitude values and two clusters that together seemed to fit the subpopulation that had higher period and amplitude values.
 
 I then was able to examine the values in the trend subtracted space at which the K-Means clustering separated the ``lower'' cluster from the ``upper'' clusters. Then by using the kernel function to map this linear boundary line back to the period, I-band amplitude space I was able to get a 3rd degree polynomial for separating the two groups in period and I-band amplitude.
 
